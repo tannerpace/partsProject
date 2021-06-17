@@ -44,9 +44,6 @@ CREATE TABLE `parts`.`pastOrders` (
     userid int NOT NULL,
      totalPrice decimal NOT NULL,
        datePlaced Datetime not null DEFAULT (current_date()),
-     
-   
-
-     primary key (id),
-         FOREIGN KEY (userid) REFERENCES users(id)
+       primary key (id),
+       FOREIGN KEY (userid) REFERENCES users(id)
 );
