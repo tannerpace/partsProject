@@ -29,6 +29,14 @@ CREATE TABLE `parts`.`cartItems` (
     FOREIGN KEY (partNumber) REFERENCES catalog(partNumber)
       );
 
+CREATE TABLE `parts`.`pastOrders` (
+    id int NOT NULL,
+    userId int NOT NULL,
+    totalPrice decimal NOT NULL,
+    datePlaced Datetime not null DEFAULT (current_date()),
+     primary key (id),
+    FOREIGN KEY (userId) REFERENCES users(id)
+);
 CREATE TABLE `parts`.`orderedItems` (
     id int NOT NULL  ,
     partNumber varchar(16),
@@ -38,21 +46,5 @@ CREATE TABLE `parts`.`orderedItems` (
     FOREIGN KEY (partNumber) REFERENCES catalog(partNumber),
     FOREIGN KEY (transactionId) REFERENCES pastOrders(id)
 );
-
-CREATE TABLE `parts`.`pastOrders` (
-    id int NOT NULL,
-    userId int NOT NULL,
-    totalPrice decimal NOT NULL,
-    datePlaced Datetime not null DEFAULT (current_date()),
-     
-    primary key (id),
-    FOREIGN KEY (userId) REFERENCES users(id)
-);
-
-
-
-
-
-
 
 
