@@ -1,2 +1,2 @@
 # partsProject
-jrs code school personal project
+personal project
