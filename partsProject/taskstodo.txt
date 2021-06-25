@@ -1,0 +1,9 @@
+Set up routes
+set up controller
+set up server
+make componets
+make services
+make user model
+make parts model
+make cart model
+set up db config
