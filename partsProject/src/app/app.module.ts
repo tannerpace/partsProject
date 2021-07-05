@@ -11,8 +11,10 @@ import { PartsMainPageComponent } from './components/parts-main-page/parts-main-
 import { EditUserFormComponent } from './components/user/edit-user/edit-user-form/edit-user-form.component';
 import { EditUserPageComponent } from './components/user/edit-user/edit-user-page/edit-user-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CreateUserPageComponent } from './components/user/user-login/Create-user-page/create-user-page/create-user-page.component';
-import { CreateUserFormComponent } from './components/user/user-login/Create-user-form/create-user-form/create-user-form.component';\
+import { CreateUserPageComponent } from './components/user/create-user/create-user-page/create-user-page.component';
+import { CreateUserFormComponent } from './components/user/create-user/create-user-form/create-user-form/create-user-form.component';
+
+
 
 
 
@@ -26,7 +28,9 @@ import { CreateUserFormComponent } from './components/user/user-login/Create-use
     EditUserFormComponent,
     EditUserPageComponent,
     CreateUserPageComponent,
-    CreateUserFormComponent,
+    CreateUserFormComponent
+  
+    
    
     
  
