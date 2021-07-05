@@ -1,10 +1,11 @@
-DROP SCHEMA if exists parts;
+SELECT * FROM parts.catalog;DROP SCHEMA if exists parts;
 CREATE SCHEMA `parts`;
 
 CREATE TABLE `parts`.`users` (
   id int NOT NULL unique AUTO_INCREMENT,
   firstName varchar(30) NOT NULL,
   lastName varchar(30) NOT NULL,
+  password varchar(30) NOT NULL,
   email varchar(230) unique NOT NULL,
   admin boolean default 0,
   primary key(id)
@@ -48,9 +49,9 @@ CREATE TABLE `parts`.`orderedItems` (
 );
 
 
-INSERT INTO parts.users (firstName, lastName, email)
-VALUES ('Cardinal1','Tom1','tom1@gmail.com'),('Cardinal2','Tom2','tom2@gmail.com'),
-('Cardinal3','Tom3','tom3@gmail.com');
+INSERT INTO parts.users (firstName, lastName, password, email)
+VALUES ('Cardinal1','Tom1','123', 'tom1@gmail.com'),('Cardinal2','Tom2','pass123', 'tom2@gmail.com'),
+('Cardinal3','Tom3','pword123', 'tom3@gmail.com');
 
 INSERT INTO parts.catalog (partNumber,PrimaryVendor,color, partName,price)
 VALUES ('M1MN0111309','Baja Designs','silver','Bumper','9.00'),

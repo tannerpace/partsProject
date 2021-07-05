@@ -25,7 +25,7 @@ require("./app/models/index")
 
 const PORT = 8080;
 app.listen(PORT, () => {
-  console.log(`Hello there, server is running on port ${PORT}.`);
+  console.log(`Hello server is running on port ${PORT}.`);
 });
 
 
