@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { UserServiceService } from 'src/app/services/user-service.service';
 
@@ -13,12 +14,14 @@ export class CreateUserFormComponent implements OnInit {
   confirmedPassword: string;
 
 
-  constructor(private userService: UserServiceService) { }
+  constructor(private userService: UserServiceService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.user = {
       firstName: '',
-      lastName:'',
+      lastName: '',
       password: '',
       email: ''
     }
@@ -41,7 +44,7 @@ export class CreateUserFormComponent implements OnInit {
     } else if (!/^[a-zA-Z0-9_]*$/.test(this.user.lastName)) {
       console.log("invalid lastname")
       return;
-    }else {
+    } else {
 
       this.userService.createNewUser(this.user)
         .subscribe(
@@ -57,8 +60,16 @@ export class CreateUserFormComponent implements OnInit {
             console.error("ERROR creating user: ", error)
           }
         );
+        alert("Account Created Successfully, \n \nRedirecting to Login Page")
+        this.goToLogin();
     }
   }
+
+
+  goToLogin() {
+    this.router.navigate(['login'])
+  }
+
 }
 
 
