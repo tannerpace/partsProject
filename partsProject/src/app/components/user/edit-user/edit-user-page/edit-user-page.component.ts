@@ -12,4 +12,8 @@ export class EditUserPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  editUserInfo(){
+    
+  }
+
 }

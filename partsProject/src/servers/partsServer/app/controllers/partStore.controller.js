@@ -101,3 +101,22 @@ exports.getUserEmail = (req, res) => {
     }
   });
 };
+
+exports.deleteUser = (req, res) => {
+  let id = req.params.id;
+
+  let query = "DELETE FROM users where id = ?;";
+
+  db.query(query, [id], (err, results) => {
+    if (err) {
+      res.status(500).send();
+      return;
+    } else {
+      if (results.length == 0) {
+        res.status(404).send({ message: "can not remove an empty user" });
+        return;
+      }
+      res.send(results[0]);
+    }
+  });
+};
