@@ -10,48 +10,29 @@ import { LoginFormComponent } from './components/user/user-login/login-form/logi
 import { PartsMainPageComponent } from './components/parts-main-page/parts-main-page.component';
 import { EditUserFormComponent } from './components/user/edit-user/edit-user-form/edit-user-form.component';
 import { EditUserPageComponent } from './components/user/edit-user/edit-user-page/edit-user-page.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreateUserPageComponent } from './components/user/create-user/create-user-page/create-user-page.component';
 import { CreateUserFormComponent } from './components/user/create-user/create-user-form/create-user-form/create-user-form.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { PartsListComponent } from './components/parts-list/parts-list.component';
-
-
-
-
-
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     LoginFormComponent,
-
     PartsMainPageComponent,
     EditUserFormComponent,
     EditUserPageComponent,
     CreateUserPageComponent,
     CreateUserFormComponent,
-    PartsListComponent,
-    
-
-
-
-
-
-
+    PartsListComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule, HttpClientModule, NgbModule, LayoutModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule
+    AppRoutingModule,
+    HttpClientModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

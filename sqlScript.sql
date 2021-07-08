@@ -5,7 +5,7 @@ CREATE TABLE `parts`.`users` (
   id int NOT NULL unique AUTO_INCREMENT,
   firstName varchar(30) NOT NULL,
   lastName varchar(30) NOT NULL,
-  password varchar(30) NOT NULL,
+  password varchar(100) NOT NULL,
   email varchar(230) unique NOT NULL,
   admin boolean default 0,
   primary key(id)

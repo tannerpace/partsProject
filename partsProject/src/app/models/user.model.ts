@@ -7,7 +7,7 @@ export class User {
     public password?: string;
     public email?: string;
 
-    constructor(obj: User) {
+    constructor(obj: any) {
         Object.assign(this, obj);
     }
 };
