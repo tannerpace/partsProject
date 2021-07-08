@@ -1,20 +1,22 @@
 <body>
-<div>
+<div class="wrapper">
+   
     <form #itemForm="ngForm" (ngSubmit)="submit(itemForm)">
-        <label for="firstName">First Name</label>
+        <h3>Create an Account</h3>
+        <label for="firstName"><b>First Name:</b></label>
         <input type="text" id="fname" required name="firstName" placeholder="First name.." [(ngModel)]="user.firstName" minlength="3">
 
-        <label for="lastName">Last Name</label>
+        <label for="lastName"><b>Last Name:</b></label>
         <input type="text" id="lastName" required name="lastName" placeholder="Last name.." [(ngModel)]="user.lastName" minlength="3">
 
 
-        <label for="Password">Password</label>
+        <label for="Password"><b>Password:</b></label>
         <input type="password" required id="password" name="password" placeholder="Password" [(ngModel)]="user.password" minlength="6">
 
-        <label for="email">Email</label>
-        <input type="email" id="lastName" name="email" placeholder="Email.." [(ngModel)]="user.email" minlength="8">
+        <label for="email"><b>Email:</b></label>
+        <input type="email" email="true" id="lastName" name="email" placeholder="Email.." [(ngModel)]="user.email" minlength="8">
 
-        <input class="submit" type="submit" [disabled]="!itemForm.valid">
+        <input class="subbutton" type="submit" [disabled]="!itemForm.valid">
     </form>
 </div>
 </body>

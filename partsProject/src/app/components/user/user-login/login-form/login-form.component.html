@@ -1,1 +1,25 @@
-<p>login-form works!</p>
+<!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> -->
+
+
+<form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
+    <h2>Welcome to The Parts Store!</h2>
+
+    <div class="container">
+        <label for="email"><b>Email:</b></label>
+        <input type="email" placeholder="Enter Email" name="email" required [(ngModel)]="email"><br>
+
+        <label for="password"><b>Password:</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required [(ngModel)]="password" id="login">
+        <mat-icon aria-hidden="false" aria-label="eye icon" (click)="showPass()">preview</mat-icon>
+
+
+       <button (click)="goToCreate()" class="create">Create
+            Account</button>
+        <input type="submit" class="subbutton" [disabled]="!itemForm.valid">
+        
+
+
+    </div>
+
+
+</form>

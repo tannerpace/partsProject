@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user.model';
+import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-parts-main-page',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parts-main-page.component.css']
 })
 export class PartsMainPageComponent implements OnInit {
+  user: User;
+  activeUser: User;
 
-  constructor() { }
+  constructor(private userService: UserServiceService) { }
 
   ngOnInit(): void {
+    this.activeUser = this.userService.getActiveUser();
+
   }
 
-}
+  logout(){
+   return this.userService.logoutActiveUser();
+  }
+
+
+
+};

@@ -120,3 +120,27 @@ exports.deleteUser = (req, res) => {
     }
   });
 };
+
+exports.login = (req, res) => {
+  let password = req.body.password;
+  let email = req.body.email;
+  let query = "Select * from users Where email=?;";
+
+  db.query(query, [email], async (err, data) => {
+    if (err) {
+      res.status(500).send({ message: "error orrcured" });
+    } else if (data && data.length == 0) {
+      //empty request
+      res.status(400).send({ message: "Email not found" });
+      return;
+    } else {
+      const comparison = await bcrypt.compare(password, data[0].password);
+      if (comparison) {
+        console.log("password successs");
+        res.send(data[0]);
+      } else {
+        res.status(204).send({ message: "password doesnt match" });
+      }
+    }
+  });
+};
