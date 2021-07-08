@@ -1,4 +1,4 @@
-SELECT * FROM parts.catalog;DROP SCHEMA if exists parts;
+DROP SCHEMA if exists parts;
 CREATE SCHEMA `parts`;
 
 CREATE TABLE `parts`.`users` (
