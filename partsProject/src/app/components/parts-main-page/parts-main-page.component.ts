@@ -13,7 +13,7 @@ export class PartsMainPageComponent implements OnInit {
   user: User;
   activeUser: User;
 
-  products:any;
+  products: Product[] | any = [];
 
   constructor(private userService: UserServiceService,
     private productsService: ProductService) { }
@@ -29,7 +29,6 @@ export class PartsMainPageComponent implements OnInit {
         console.error(err)
 
       })
-
   }
 
   logout() {

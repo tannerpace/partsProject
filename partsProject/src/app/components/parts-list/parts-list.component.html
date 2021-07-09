@@ -1,4 +1,35 @@
-<p>parts-list works!</p>
-<div *ngfor="let product of products">
-    <h1>{{partName}}</h1>
+<div *ngFor="let product of products">
+    <br>
+    <div class="container">
+        <div class="head__section">
+            <i class="fi-rr-arrow-small-left"></i>
+            <span class="logo">PartsStoreLogo</span>
+            <!-- <i class="fi-sr-heart"></i> -->
+        </div>
+
+        <div class="display__product">
+            <img src="" alt="">
+            <div class="slider">
+
+            </div>
+        </div>
+        <div class="product__details">
+            <div class="title__section">
+                <div class="title">
+                    <p>{{product.partName}}</p>
+                    <p>{{product.PrimaryVendor}}</p>
+                </div>
+
+            </div>
+
+            <div class="product__colors">
+                <p>{{product.color}}</p>
+
+            </div>
+            <div class="product_foot">
+                <p class="price">{{product.price}}.99</p>
+                <button><i class="fi-sr-shopping-cart-add"></i>Add To Cart</button>
+            </div>
+        </div>
+    </div>
 </div>

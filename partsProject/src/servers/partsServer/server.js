@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 require("./app/routes/user.routes")(app);
 require("./app/routes/product.routes")(app);
+require("./app/routes/cart.routes")(app);
 require("./app/models/index")
 
 

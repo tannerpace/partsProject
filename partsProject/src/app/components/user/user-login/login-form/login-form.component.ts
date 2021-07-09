@@ -14,7 +14,6 @@ export class LoginFormComponent implements OnInit {
   email: string;
   password: string;
 
-
   constructor(private userService: UserServiceService,
     private router: Router) { }
 
@@ -40,12 +39,10 @@ export class LoginFormComponent implements OnInit {
           return;
         }
         console.log('login successful');
-
         //user is the user object returned from the DB
         let activeUser = new User(user);
         this.userService.setActiveUser(activeUser);
         this.goToMain();
-
       },
       (error) => {
         console.error('ERROR loggin in: ', error);
@@ -62,6 +59,6 @@ export class LoginFormComponent implements OnInit {
     }
   }
 
- 
+
 
 }
