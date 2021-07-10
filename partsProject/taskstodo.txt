@@ -7,3 +7,4 @@ make user model
 make parts model
 make cart model
 set up db config
+Get user id into parts list, function to add item to cart
