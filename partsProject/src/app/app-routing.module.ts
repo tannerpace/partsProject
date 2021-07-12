@@ -7,10 +7,10 @@ import { LoginPageComponent } from './components/user/user-login/login-page/logi
 
 const routes: Routes = [
   
+  {path: "",component: PartsMainPageComponent},
   {path: "login", component: LoginPageComponent},
   {path: "createUser",component: CreateUserPageComponent},
   {path: "editUser",component: EditUserPageComponent},
-  {path: "mainPage",component: PartsMainPageComponent},
  
   
   {path: "**", redirectTo: ""}
