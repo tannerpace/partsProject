@@ -1,4 +1,4 @@
-<div *ngFor="let product of products">
+<div *ngFor="let product of products" class="body">
     <br>
     <div class="container">
         <div class="head__section">
@@ -27,8 +27,8 @@
 
             </div>
             <div class="product_foot">
-                <p class="price">{{product.price}}.99</p>
-                <button><i class="fi-sr-shopping-cart-add"></i>Add To Cart</button>
+                <p class="price">{{product.price}}.00</p>
+                <button (click)="addItem(product)"><i class="fi-sr-shopping-cart-add"></i>Add To Cart</button>
             </div>
         </div>
     </div>
