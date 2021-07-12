@@ -1,5 +1,7 @@
 <p>parts-main-page works!</p>
+<p>welcome {{activeUser.firstName}}</p>
 
 <button (click)="logout()">Logout</button>
+<button (click)="toLogin()">ToLoginPage</button>
 
-<app-parts-list [products]="products"></app-parts-list>
+<app-parts-list  [products]="products" ></app-parts-list>
