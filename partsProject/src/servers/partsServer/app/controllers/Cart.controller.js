@@ -88,6 +88,49 @@ exports.getCartItemQuantityById = (req, res) => {
 
 };
 
+//depends on two functions//
+//incrementQuantity//
+// addfirst//
+exports.addItem = (req, res) => {
+
+  let theId;
+  let userId = req.params.userId;
+  let partNumber = req.params.partNumber;
+  // select cartid by userId and partNum
+  let idquery = "SELECT id FROM parts.cartItems where userId = ? AND partNumber = ?;";
+
+  db.query(idquery, [userId, partNumber], (err, results) => {
+    if (err) {
+      console.error(err);
+
+      return;
+    } else {
+      if (results.length == 0) {
+        //nopart in database with this userId and partNum
+        let theId = 0;
+
+        if (theId === 0) {
+          //add a new part
+          addfirst(userId, partNumber);
+
+        } else if (theId >= 1) {
+          //already a part in database
+          incrementQuantity(theId)
+        }
+
+      } else {
+        let theId = results[0].id;
+        if (theId >= 1) {
+          //increase quantity by cart id.
+          incrementQuantity(theId)
+        }
+
+      }
+    }
+  });
+  res.send("item added")
+};
+
 
 
 //function to add item make quantity 1
@@ -198,50 +241,7 @@ function QuantityById(cartId) {
 
 };
 
-//depends on two functions//
-//incrementQuantity//
-// addfirst//
-exports.addItem = (req, res) => {
 
-  let theId;
-  let userId = req.params.userId;
-  let partNumber = req.params.partNumber;
-  // select cartid by userId and partNum
-  let idquery = "SELECT id FROM parts.cartItems where userId = ? AND partNumber = ?;";
-
-  db.query(idquery, [userId, partNumber], (err, results) => {
-    if (err) {
-      console.error(err);
-
-      return;
-    } else {
-      if (results.length == 0) {
-        //nopart in database with this userId and partNum
-        let theId = 0;
-
-        if (theId === 0) {
-          //add a new part
-          addfirst(userId, partNumber);
-
-        } else if (theId >= 1) {
-          //already a part in database
-          incrementQuantity(theId)
-        }
-
-      } else {
-        let theId = results[0].id;
-        if (theId === 0) {
-          addfirst(userId, partNumber);
-
-        } else if (theId >= 1) {
-          //increase quantity by cart id.
-          incrementQuantity(theId)
-        }
-
-      }
-    }
-  });
-};
 
 
 //function to update cart quantity by id
