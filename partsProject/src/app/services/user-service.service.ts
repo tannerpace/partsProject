@@ -52,13 +52,7 @@ export class UserServiceService {
   }
 
   public logoutActiveUser() {
-    let user: User = JSON.parse(localStorage.getItem('activeUser'));
-    console.log(user);
     localStorage.removeItem('activeUser');
-    let userLoggedout: User = JSON.parse(localStorage.getItem('activeUser'));
-    console.log(userLoggedout);
-  
-    
   }
 
 }
