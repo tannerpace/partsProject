@@ -5,7 +5,7 @@ module.exports = app => {
 
     app.get("/api/cart/:id/:partNumber" , cartController.getUserItemId);
 
-    app.put("/api/cartadd/:userId/:partNumber", cartController.addItem);
+    app.put("/api/cartadd", cartController.addItem);
 
     app.get("/api/cartquantity/:id/:partNumber" , cartController.getUserItemQuantity);
 
