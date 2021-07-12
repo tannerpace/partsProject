@@ -4,17 +4,17 @@
     <form #itemForm="ngForm" (ngSubmit)="submit(itemForm)">
         <h3>Create an Account</h3>
         <label for="firstName"><b>First Name:</b></label>
-        <input type="text" id="fname" required name="firstName" placeholder="First name.." [(ngModel)]="user.firstName" minlength="3">
+        <input type="text" id="firstName" required name="firstName" placeholder="First name.." [(ngModel)]="user.firstName" minlength="3">
 
         <label for="lastName"><b>Last Name:</b></label>
         <input type="text" id="lastName" required name="lastName" placeholder="Last name.." [(ngModel)]="user.lastName" minlength="3">
 
 
-        <label for="Password"><b>Password:</b></label>
+        <label for="password"><b>Password:</b></label>
         <input type="password" required id="password" name="password" placeholder="Password" [(ngModel)]="user.password" minlength="6">
 
         <label for="email"><b>Email:</b></label>
-        <input type="email" email="true" id="lastName" name="email" placeholder="Email.." [(ngModel)]="user.email" minlength="8">
+        <input type="email" email="true" id="email" name="email" placeholder="Email.." [(ngModel)]="user.email" minlength="8">
 
         <input class="subbutton" type="submit" [disabled]="!itemForm.valid">
     </form>
