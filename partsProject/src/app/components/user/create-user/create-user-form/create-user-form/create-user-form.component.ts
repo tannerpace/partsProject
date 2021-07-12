@@ -60,14 +60,14 @@ export class CreateUserFormComponent implements OnInit {
             console.error("ERROR creating user: ", error)
           }
         );
-        alert("Account Created Successfully, \n \nRedirecting to Login Page")
-        this.goToLogin();
+        
+        this.goToMainPage();
     }
   }
 
 
-  goToLogin() {
-    this.router.navigate(['login'])
+  goToMainPage() {
+    this.router.navigate([""])
   }
 
 }
