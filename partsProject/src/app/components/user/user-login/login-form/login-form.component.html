@@ -13,9 +13,10 @@
         <mat-icon aria-hidden="false" aria-label="eye icon" (click)="showPass()">preview</mat-icon>
 
 
-       <button (click)="goToCreate()" class="create">Create
+      
+        <input type="submit" value="Login" class="subbutton"  [disabled]="!itemForm.valid">
+        <button (click)="goToCreate()" class="create">Create
             Account</button>
-        <input type="submit" class="subbutton" [disabled]="!itemForm.valid">
         
 
 
