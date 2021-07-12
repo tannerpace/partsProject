@@ -93,9 +93,12 @@ exports.getCartItemQuantityById = (req, res) => {
 // addfirst//
 exports.addItem = (req, res) => {
 
-  let theId;
-  let userId = req.params.userId;
-  let partNumber = req.params.partNumber;
+
+  let userId = req.body.userId;
+  let partNumber = req.body.partNumber;
+
+  console.log(userId, partNumber, req.body)
+
   // select cartid by userId and partNum
   let idquery = "SELECT id FROM parts.cartItems where userId = ? AND partNumber = ?;";
 
@@ -103,51 +106,41 @@ exports.addItem = (req, res) => {
     if (err) {
       console.error(err);
 
+      res.status(500).send(err)
       return;
+    } else if (results.length == 0) {
+      //nopart in database with this userId and partNum
+      //add a new part
+      addfirst(userId, partNumber);
+      res.send("item added")
     } else {
-      if (results.length == 0) {
-        //nopart in database with this userId and partNum
-        let theId = 0;
-
-        if (theId === 0) {
-          //add a new part
-          addfirst(userId, partNumber);
-
-        } else if (theId >= 1) {
-          //already a part in database
-          incrementQuantity(theId)
-        }
-
-      } else {
-        let theId = results[0].id;
-        if (theId >= 1) {
-          //increase quantity by cart id.
-          incrementQuantity(theId)
-        }
-
-      }
+      let theId = results[0].id;
+        //increase quantity by cart id.
+        incrementQuantity(req, res, theId)
+        console.log('increment finished')
     }
   });
-  res.send("item added")
+  console.log("waiting to send response")
 };
 
 
 
 //function to add item make quantity 1
 function addfirst(userId, partNumber) {
-  let quantity = 1;
+
+  console.log('adding first')
 
   let query = "INSERT INTO parts.cartItems (userId, partNumber, quantity) \
     VALUES (?, ?, 1);"
 
-  db.query(query, [userId, partNumber, quantity], (err, results) => {
+  db.query(query, [userId, partNumber], (err, results) => {
     if (err) {
       console.error(err);
 
       return results;
     } else {
       console.log(results);
-      console.log("item", partNumber, "ammount", quantity, "added to a cart");
+      console.log("item", partNumber, "added to a cart");
       return results;
     }
   }
@@ -185,7 +178,7 @@ function amount(userId, partNumber) {
 };
 
 
-//returns 0 if row doesn't exit, or the id of item
+//returns 0 if row doesn't exist, or the id of item
 function getCartId(userId, partNumber) {
 
   // select cartid by userId and partNum
@@ -245,20 +238,21 @@ function QuantityById(cartId) {
 
 
 //function to update cart quantity by id
-function incrementQuantity(cartId) {
+function incrementQuantity(req, res, cartId) {
   let query = "UPDATE parts.cartItems SET quantity = quantity + 1 where id = ?;";
+
+  console.log("incrementing")
 
   db.query(query, [cartId], (err, results) => {
     if (err) {
       console.error(err);
-
+      res.status(500).send(err)
       return;
     } else {
-      if (results.length == 0) {
-        //no quantity found
-        console.log("nothing happend")
-      }
-      return results
+      console.log(results);
+      
+      console.log("increment happened")
+      res.send({message: "increment successful"})
     }
   });
 
