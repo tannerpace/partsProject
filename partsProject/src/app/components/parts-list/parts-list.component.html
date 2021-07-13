@@ -1,23 +1,12 @@
-<div *ngFor="let product of products" class="body">
-    <br>
-    <div class="container">
-        <div class="head__section">
-            <i class="fi-rr-arrow-small-left"></i>
-            <span class="logo">PartsStoreLogo</span>
-            <!-- <i class="fi-sr-heart"></i> -->
-        </div>
+<div class="root">
+    <div  class="list">
 
-        <div class="display__product">
-            <img src="" alt="">
-            <div class="slider">
+        <div *ngFor="let product of products" class="product-card">
 
-            </div>
-        </div>
-        <div class="product__details">
-            <div class="title__section">
-                <div class="title">
-                    <p>{{product.partName}}</p>
-                    <p>{{product.PrimaryVendor}}</p>
+            <div class="title__section">The Part
+                <div class="title">Details
+                    <div>{{product.partName}}</div>
+                    <div>{{product.PrimaryVendor}}</div>
                 </div>
 
             </div>
@@ -28,7 +17,7 @@
             </div>
             <div class="product_foot">
                 <p class="price">{{product.price}}.00</p>
-                <button (click)="addItem(product)"><i class="fi-sr-shopping-cart-add"></i>Add To Cart</button>
+              <a routerLink="/cartPage" > <button (click)="addItem(product)"><i class="fi-sr-shopping-cart-add"></i>Add To Cart</button></a> 
             </div>
         </div>
     </div>

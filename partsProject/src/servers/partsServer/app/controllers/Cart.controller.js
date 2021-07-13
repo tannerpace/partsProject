@@ -79,9 +79,6 @@ exports.getCartItemQuantityById = (req, res) => {
         res.status(404).send({ message: "user not found" });
         return;
       }
-
-
-
       res.send(results[0]);
     }
   });
@@ -111,13 +108,13 @@ exports.addItem = (req, res) => {
     } else if (results.length == 0) {
       //nopart in database with this userId and partNum
       //add a new part
-      addfirst(userId, partNumber);
+      addFirst(userId, partNumber);
       res.send("item added")
     } else {
       let theId = results[0].id;
-        //increase quantity by cart id.
-        incrementQuantity(req, res, theId)
-        console.log('increment finished')
+      //increase quantity by cart id.
+      incrementQuantity(req, res, theId)
+      console.log('increment finished')
     }
   });
   console.log("waiting to send response")
@@ -126,7 +123,7 @@ exports.addItem = (req, res) => {
 
 
 //function to add item make quantity 1
-function addfirst(userId, partNumber) {
+function addFirst(userId, partNumber) {
 
   console.log('adding first')
 
@@ -149,7 +146,7 @@ function addfirst(userId, partNumber) {
 
 
 
-//function to return quantity if you put in user id and partNumber
+//Broken function to return quantity if you put in user id and partNumber
 function amount(userId, partNumber) {
   console.log("amount function start line 117")
 
@@ -250,11 +247,34 @@ function incrementQuantity(req, res, cartId) {
       return;
     } else {
       console.log(results);
-      
+
       console.log("increment happened")
-      res.send({message: "increment successful"})
+      res.send({ message: "increment successful" })
     }
   });
 
 };
+
+exports.getUserCartItems = (req, res) => {
+
+  let query = "SELECT * FROM parts.cartItems where userid = ?;";
+  const userId = req.params.userId;
+
+  db.query(query, [userId], (err, results) => {
+    if (err) {
+      console.error(err);
+      return;
+    } else {
+      console.log("")
+      res.send(results);
+
+    }
+  });
+
+};
+
+
+
+
+
 
