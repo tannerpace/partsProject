@@ -14,6 +14,8 @@ import { CreateUserPageComponent } from './components/user/create-user/create-us
 import { CreateUserFormComponent } from './components/user/create-user/create-user-form/create-user-form/create-user-form.component';
 import { MatIconModule } from '@angular/material/icon';
 import { PartsListComponent } from './components/parts-list/parts-list.component';
+import { ItemCartComponent } from './components/item-cart/item-cart.component';
+import { CartPageComponent } from './components/cart-page/cart-page.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { PartsListComponent } from './components/parts-list/parts-list.component
     EditUserPageComponent,
     CreateUserPageComponent,
     CreateUserFormComponent,
-    PartsListComponent
+    PartsListComponent,
+    ItemCartComponent,
+    CartPageComponent
   ],
   imports: [
     FormsModule,

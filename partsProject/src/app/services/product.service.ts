@@ -23,5 +23,9 @@ export class ProductService {
     return this.http.put(`${this.baseURL}/api/cartadd`, body)
   }
 
+  public getUserCartItems(userId: number){
+return this.http.get(`${this.baseURL}/api/cart/${userId}`)
+  }
+
 
 }
