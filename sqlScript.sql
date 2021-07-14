@@ -31,7 +31,7 @@ CREATE TABLE `parts`.`cartItems` (
       );
 
 CREATE TABLE `parts`.`pastOrders` (
-    id int NOT NULL,
+    id int NOT NULL unique AUTO_INCREMENT,
     userId int NOT NULL,
     totalPrice decimal NOT NULL,
     datePlaced Datetime not null DEFAULT (current_date()),
