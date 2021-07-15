@@ -146,33 +146,7 @@ function addFirst(userId, partNumber) {
 
 
 
-//Broken function to return quantity if you put in user id and partNumber
-function amount(userId, partNumber) {
-  console.log("amount function start line 117")
 
-  // select quantity from data base
-  let query = "SELECT quantity FROM parts.cartItems where userId = ? AND partNumber = ?;";
-
-  db.query(query, [userId, partNumber], (err, results) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send();
-      return;
-    } else {
-      //nothing found
-      console.log("results of ammount function are ", results, " at line 127")
-      if (results.length == 0) {
-        let quantity = 0;
-        console.log("results length 0", quantity, "line 131")
-        return quantity;
-      }
-      else
-        console.log("result length not 0 return", (results[0].quantity), " at line 134")
-      return results[0].quantity;
-    }
-  });
-
-};
 
 
 //returns 0 if row doesn't exist, or the id of item
@@ -268,6 +242,35 @@ exports.getUserCartItems = (req, res) => {
       console.log("")
       res.send(results);
 
+    }
+  });
+
+};
+
+
+//Broken function to return quantity if you put in user id and partNumber
+function amount(userId, partNumber) {
+  console.log("amount function start line 117")
+
+  // select quantity from data base
+  let query = "SELECT * FROM parts.cartItems where userId = ? AND partNumber = ?;";
+
+  db.query(query, [userId, partNumber], (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+      return;
+    } else {
+      //nothing found
+      console.log("results of ammount function are ", results, " at line 127")
+      if (results.length == 0) {
+        let quantity = 0;
+        console.log("results length 0", quantity, "line 131")
+        return quantity;
+      }
+      else
+        console.log("result length not 0 return", (results[0].quantity), " at line 134")
+      return results[0].quantity;
     }
   });
 

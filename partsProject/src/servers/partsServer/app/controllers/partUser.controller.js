@@ -144,3 +144,33 @@ exports.login = (req, res) => {
     }
   });
 };
+
+
+
+exports.getPastOrders = (req, res) => {
+
+  let userId = req.params.userId;
+
+  // select user by userName
+  // select order date, order total, order id
+  // from orders
+  // where userId = ?
+
+  let query = "SELECT ";
+
+  db.query(query, [userId], (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+      return;
+    } else {
+      if (results.length == 0) {
+        //no user found
+        res.status(404).send({ message: "user not found" });
+        return;
+      }
+      //got past orders successfully
+      res.send(results);
+    }
+  });
+};
