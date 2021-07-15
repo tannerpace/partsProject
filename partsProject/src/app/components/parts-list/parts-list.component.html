@@ -1,8 +1,7 @@
 <div class="root">
-    <div  class="list">
+    <div class="list">
 
-        <div *ngFor="let product of products" class="product-card">
-
+        <div *ngFor="let product of products" class="product-parent">
             <div class="title__section">The Part
                 <div class="title">Details
                     <div>{{product.partName}}</div>
@@ -17,7 +16,10 @@
             </div>
             <div class="product_foot">
                 <p class="price">{{product.price}}.00</p>
-              <a routerLink="/cartPage" > <button (click)="addItem(product)"><i class="fi-sr-shopping-cart-add"></i>Add To Cart</button></a> 
+                <a routerLink="/cartPage">
+                    <img src="../../../assets//images/72-720639_cart-icon-in-png-transparent-png.png">
+                    <div class="buy" (click)="addItem(product)">Add To Cart</div>
+                </a>
             </div>
         </div>
     </div>

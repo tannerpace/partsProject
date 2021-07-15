@@ -13,13 +13,13 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 })
 export class PartsListComponent implements OnInit {
 
-  @Input() products: Product[];
+  products: Product[];
   activeUser: User;
 
 
   constructor(private userService: UserServiceService,
-    private productsService: ProductService,
-    private cartService: CartService) { }
+    private productsService: ProductService
+  ) { }
 
   ngOnInit(): void {
 
@@ -38,6 +38,7 @@ export class PartsListComponent implements OnInit {
     this.productsService.addItem(this.activeUser.id, product.partNumber)
       .subscribe(data => {
         console.log(data)
+        //then what?
       }, err => {
         console.error("ERROR:", err)
       });
