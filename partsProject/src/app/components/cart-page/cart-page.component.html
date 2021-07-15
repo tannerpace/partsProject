@@ -1,0 +1,16 @@
+<p>cart-page works!</p>
+<a routerLink=""><button>Continue Shopping</button></a>
+
+<div *ngFor="let item of cart">
+
+    <p>Price:{{item.price}}
+        Partname:{{item.partName}}</p>
+        <input type="number" style="width: 40px;" [(ngModel)]="item.quantity" (ngModelChange)="changeQuantity(item)" />
+        <button>Remove</button>
+</div>
+
+<div>Subtotal : {{totalPrice | currency}}</div>
+<div>Tax : {{totalPrice * 1.06 | currency}}</div>
+<div>Total Price : {{totalPrice | currency}}</div>
+
+<button type="button" (click)="purchaseCart()">Confirm Purchase</button>
