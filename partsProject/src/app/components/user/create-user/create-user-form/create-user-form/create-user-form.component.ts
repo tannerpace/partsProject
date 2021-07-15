@@ -61,14 +61,14 @@ export class CreateUserFormComponent implements OnInit {
           }
         );
         
-        this.goToMainPage();
+        
     }
   }
 
 
-  goToMainPage() {
-    this.router.navigate([""])
-  }
+  // goToMainPage() {
+  //   this.router.navigate([""])
+  // }
 
 }
 
