@@ -1,0 +1,191 @@
+const db = require("../models/index");
+const { addItem } = require("./scratch");
+
+exports.welcome = (req, res) => {
+  res.json({
+    messages: `Welcome to the parts cart controller application.`
+  });
+};
+
+//returns cart id
+// takes a user id and partNum as param
+// sends the id of the cart back as an array at index 0
+exports.getUserItemId = (req, res) => {
+
+  const userId = req.params.id;
+  const partNumber = req.params.partNumber;
+  // select cartid by userId and partNum
+  let query = "SELECT id FROM parts.cartItems where userId = ? AND partNumber = ?;";
+
+  db.query(query, [userId, partNumber], (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+      return;
+    } else {
+      if (results.length == 0) {
+        //no user found
+        res.status(404).send({ message: "user not found" });
+        return;
+      }
+      res.send(results[0]);
+    }
+  });
+
+};
+
+//gets the quantity if you put in user id and partNumber
+exports.getUserItemQuantity = (req, res) => {
+
+  const userId = req.params.id;
+  const partNumber = req.params.partNumber;
+  // select user by userId
+  let query = "SELECT quantity FROM parts.cartItems where userId = ? AND partNumber = ?;";
+
+  db.query(query, [userId, partNumber], (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+      return;
+    } else {
+      if (results.length == 0) {
+        //no user found
+        res.status(404).send({ message: "user not found" });
+        return;
+      }
+      res.send(results[0]);
+    }
+  });
+
+};
+
+
+// gets the quantity if you put in cart id  
+exports.getCartItemQuantityById = (req, res) => {
+
+  const cartId = req.params.id;
+
+  // get quantity by cartid
+  let query = "SELECT quantity FROM parts.cartItems where id = ?;";
+
+  db.query(query, [cartId], (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+      return;
+    } else {
+      if (results.length == 0) {
+        //no user found
+        res.status(404).send({ message: "user not found" });
+        return;
+      }
+
+
+
+      res.send(results[0]);
+    }
+  });
+
+};
+
+
+//function to add item make quantity 1
+function addfirst(userId, partNumber) {
+  let quantity = 1;
+
+  let query = "INSERT INTO parts.cartItems (userId, partNumber, quantity) \
+    VALUES (?, ?, 1);"
+
+  db.query(query, [userId, partNumber, quantity], (err, results) => {
+    if (err) {
+      console.error(err);
+
+      return;
+    } else {
+      console.log(results);
+      console.log("item", partNumber, "ammount", quantity, "added to a cart");
+    }
+  }
+  );
+};
+
+
+
+//function to return quantity if you put in user id and partNumber
+function AddFirstorUpdateQuantity(userId, partNumber) {
+  // select user by userId
+  console.log("line 117 checking quantity of ", userId, "and", partNumber)
+  let query = "SELECT quantity FROM parts.cartItems where userId = ? AND partNumber = ?;";
+
+  db.query(query, [userId, partNumber], (err, results) => {
+    if (err) {
+      console.error(err);
+      return;
+    } else {
+      console.log((results[0].quantity), "line 125")
+      //maybe return results?
+      if ((results[0].quantity) < 0) {
+        console.log("result length 0 line 126")
+        //not in there quantity is zero
+        addfirst(userId, partNumber)
+
+        return 1;
+      } else {
+        // all we gotta do is increment quantity, write a query that sets it
+        quantity = (results[0].quantity) + 1;
+        console.log("the function found", quantity)
+        let setquery = `UPDATE parts.cartItems SET quantity = ${quantity} where userId = ? AND partNumber = ?;`;
+        db.query(query, [userId, partNumber], (err, results) => {
+
+          if (err) {
+            console.error(err);
+            res.status(500).send();
+            return;
+          } else {
+            console.log("line 145")
+            return quantity;
+
+
+
+
+            console.log(results);
+          }
+
+
+        })
+
+
+      }
+
+    }
+  });
+  return
+};
+
+
+
+exports.addItem = (req, res) => {
+  let userId = req.params.userId;
+
+  let partNumber = req.params.partNumber;
+
+  if ((AddFirstorUpdateQuantity(userId, partNumber)) > 0) {
+    //increment quantity
+    let quantity = (AddFirstorUpdateQuantity(userId, partNumber))
+    console.log(quantity, "line 151")
+    quantity++;
+    console.log(quantity, "line 153")
+    let query = `UPDATE parts.cartItems SET quantity = ${quantity} WHERE userId = ? AND partNumber = ?;`;
+    db.query(query, [userId, partNumber, quantity], (err, results) => {
+      if (err) {
+        res.status(500).send({ err, message: "error updating quantity" });
+      } else {
+        res.send(results)
+      }
+    })
+
+  } else {
+    addfirst(userId, partNumber)
+  }
+  console.log("line166 end")
+};
