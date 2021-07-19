@@ -12,10 +12,7 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 })
 export class PastOrdersComponent implements OnInit {
   @Input() activeUser: User;
-  
-orders: Order[];
-  
-
+  orders: Order[];
   constructor(private userService: UserServiceService,
     private router: Router) { }
 
@@ -29,7 +26,5 @@ orders: Order[];
 
       })
   }
-
-  
 
 }

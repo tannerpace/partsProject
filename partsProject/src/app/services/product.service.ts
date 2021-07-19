@@ -33,7 +33,6 @@ export class ProductService {
   }
 
   public deleteItemById(userId: number): Observable<any> {
-
     return this.http.delete(`${this.baseURL}/api/product/${userId}`)
   }
 

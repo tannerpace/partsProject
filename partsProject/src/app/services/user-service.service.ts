@@ -55,7 +55,7 @@ export class UserServiceService {
     localStorage.removeItem('activeUser');
   }
 
-  public getPastOrders(id: number) {
+  public getPastOrders(id: number) :Observable<any>{
     return this.http.get(`${this.baseURL}/api/orders/${id}`);
   }
 

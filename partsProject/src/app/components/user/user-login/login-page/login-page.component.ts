@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-
+  showLoginForm: boolean;
   constructor() { }
 
   ngOnInit(): void {
+    this.showLoginForm = true;
   }
-
+  toggleLoginCreateUser() {
+    this.showLoginForm = !this.showLoginForm;
+  }
 }
+

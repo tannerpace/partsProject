@@ -15,9 +15,10 @@
 
         <label for="email"><b>Email:</b></label>
         <input type="email" email="true" id="email" name="email" placeholder="Email.." [(ngModel)]="user.email" >
-
-        <input class="subbutton" type="submit" value="Create Account" [disabled]="!itemForm.valid">
-        <input class="subbutton" (click)="goToLogin()" value="To Login">
+<a routerLink = "">
+        <input class="subbutton" type="submit" value="Create your parts store account" [disabled]="!itemForm.valid"></a>
+        <hr>
+        
         
     </form>
 </div>

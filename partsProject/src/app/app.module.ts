@@ -16,6 +16,7 @@ import { PartsListComponent } from './components/parts-list/parts-list.component
 import { ItemCartComponent } from './components/basket/item-cart.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
 import { PastOrdersComponent } from './components/past-orders/past-orders.component';
+import { OneOrderComponent } from './components/one-order/one-order.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PastOrdersComponent } from './components/past-orders/past-orders.compon
     PartsListComponent,
     ItemCartComponent,
     CartPageComponent,
-    PastOrdersComponent
+    PastOrdersComponent,
+    OneOrderComponent
   ],
   imports: [
     FormsModule,

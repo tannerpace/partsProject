@@ -57,7 +57,7 @@ export class CreateUserFormComponent implements OnInit {
 
 
   goToLogin() {
-    this.router.navigate([""])
+    this.router.navigate(["/login"])
   }
 
 }
