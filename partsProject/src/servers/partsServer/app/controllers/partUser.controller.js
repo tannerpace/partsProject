@@ -44,7 +44,7 @@ exports.createUser = async (req, res) => {
         return;
       } else {
         console.log(results);
-        res.send("make user");
+        res.send({ message: "user created successfully" });
       }
     }
   );
@@ -156,7 +156,8 @@ exports.getPastOrders = (req, res) => {
   // from orders
   // where userId = ?
 
-  let query = "SELECT ";
+  let query = "SELECT * FROM parts.pastOrders \
+  WHERE userId = ?;";
 
   db.query(query, [userId], (err, results) => {
     if (err) {

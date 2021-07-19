@@ -109,7 +109,7 @@ exports.addItem = (req, res) => {
       //nopart in database with this userId and partNum
       //add a new part
       addFirst(userId, partNumber);
-      res.send("item added")
+      res.send({message: "item added to cart"})
     } else {
       let theId = results[0].id;
       //increase quantity by cart id.
@@ -248,7 +248,7 @@ exports.getUserCartItems = (req, res) => {
 };
 
 
-//Broken function to return quantity if you put in user id and partNumber
+//Broken function to return quantity of cartItems if you put in user id and partNumber
 function amount(userId, partNumber) {
   console.log("amount function start line 117")
 
@@ -276,6 +276,26 @@ function amount(userId, partNumber) {
 
 };
 
+
+//decreases quantity of cart items by id
+exports.changeQuantity = (req, res) => {
+
+  let id = req.body.id;
+  let quantity = req.body.quantity;
+
+  let query = "UPDATE parts.cartItems SET quantity = ? WHERE id = ?;";
+  
+  db.query(query, [quantity, id], (err, results) => {
+      if (err) {
+          console.error(err);
+          res.status(500).send();
+          return
+      } else {
+          console.log(results)
+      }
+
+  });
+}
 
 
 

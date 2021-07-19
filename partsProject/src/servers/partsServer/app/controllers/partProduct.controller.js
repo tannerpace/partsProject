@@ -53,3 +53,28 @@ exports.getPartByNum = (req, res) => {
     });
 
 }
+
+exports.deleteItemById = (req, res) => {
+    let userId = req.params.userId;
+
+    // select part by partNumber
+    let query = "DELETE FROM parts.cartItems WHERE userId = ?;"
+    db.query(query, [userId], (err, results) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send();
+            return;
+        } else {
+            if (results.length == 0) {
+                //no part found
+                res.status(404).send({ message: "part not found" });
+                return;
+            }
+            console.log(results)
+            res.send({ message: "ALL PARTS REMOVED FROM USER ITEMS CART!" });
+        }
+
+    });
+
+
+}
