@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
@@ -10,6 +10,8 @@ import { UserServiceService } from 'src/app/services/user-service.service';
   styleUrls: ['./create-user-form.component.css']
 })
 export class CreateUserFormComponent implements OnInit {
+  @Output() toggleForms = new EventEmitter<void>();
+
   user: User;
   confirmedPassword: string;
 
@@ -29,7 +31,7 @@ export class CreateUserFormComponent implements OnInit {
   }
 
   submit(form: NgForm) {
-    console.log("submiting" + NgForm)
+    // console.log("submiting" + NgForm)
 
     // /^[a-zA-Z0-9_.]*$/.test(this.username)
     // console.log(/^[a-zA-Z0-9_.]*$/.test("!@#%"))
@@ -38,37 +40,25 @@ export class CreateUserFormComponent implements OnInit {
     //   console.log("password mismatch")
     //   return;
 
-    if (!/^[a-zA-Z0-9_]*$/.test(this.user.firstName)) {
-      console.log("invalid firstname")
-      return;
-    } else if (!/^[a-zA-Z0-9_]*$/.test(this.user.lastName)) {
-      console.log("invalid lastname")
-      return;
-    } else {
-
-      this.userService.createNewUser(this.user)
-        .subscribe(
-          data => {
-            if (!data) {
-              console.log("ERROR Create User Failed")
-            }
-            console.log("New User Created Successfully");
-            this.userService.setActiveUser(data);
-
-          },
-          error => {
-            console.error("ERROR creating user: ", error)
-          }
-        );
-        
-        
-    }
+    this.userService.createNewUser(this.user)
+      .subscribe(
+        data => {
+          console.log("New User Created Successfully");
+          this.userService.setActiveUser(data);
+        },
+        error => {
+          console.error("ERROR creating user: ", error)
+        }
+      );
+  }
+  toggleForm() {
+    this.toggleForms.next();
   }
 
 
-  // goToMainPage() {
-  //   this.router.navigate([""])
-  // }
+  goToLogin() {
+    this.router.navigate([""])
+  }
 
 }
 

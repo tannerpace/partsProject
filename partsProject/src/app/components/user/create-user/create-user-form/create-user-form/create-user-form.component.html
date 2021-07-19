@@ -4,19 +4,21 @@
     <form #itemForm="ngForm" (ngSubmit)="submit(itemForm)">
         <h3>Create an Account</h3>
         <label for="firstName"><b>First Name:</b></label>
-        <input type="text" id="firstName" required name="firstName" placeholder="First name.." [(ngModel)]="user.firstName" minlength="3">
+        <input type="text" id="firstName" required name="firstName" placeholder="First name.." [(ngModel)]="user.firstName" >
 
         <label for="lastName"><b>Last Name:</b></label>
-        <input type="text" id="lastName" required name="lastName" placeholder="Last name.." [(ngModel)]="user.lastName" minlength="3">
+        <input type="text" id="lastName" required name="lastName" placeholder="Last name.." [(ngModel)]="user.lastName" >
 
 
         <label for="password"><b>Password:</b></label>
-        <input type="password" required id="password" name="password" placeholder="Password" [(ngModel)]="user.password" minlength="6">
+        <input type="password" required id="password" name="password" placeholder="Password" [(ngModel)]="user.password" >
 
         <label for="email"><b>Email:</b></label>
-        <input type="email" email="true" id="email" name="email" placeholder="Email.." [(ngModel)]="user.email" minlength="8">
+        <input type="email" email="true" id="email" name="email" placeholder="Email.." [(ngModel)]="user.email" >
 
-     <a routerLink="">   <input class="subbutton" type="submit" value="Create Account" [disabled]="!itemForm.valid"></a>
+        <input class="subbutton" type="submit" value="Create Account" [disabled]="!itemForm.valid">
+        <input class="subbutton" (click)="goToLogin()" value="To Login">
+        
     </form>
 </div>
 </body>

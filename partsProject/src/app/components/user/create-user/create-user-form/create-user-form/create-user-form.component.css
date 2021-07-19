@@ -38,6 +38,7 @@ body {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    color:rgb(16, 6, 16);
   }
   
   /* submit button */
@@ -102,10 +103,14 @@ body {
     border-radius: 4px;
     color: #eee;
     cursor: pointer;
-    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.5);
+    text-shadow: 0px -1px 0px rgba(107, 0, 0, 0.5);
   }
   .create:hover {
     opacity: 0.8;
+  }
+  .create:active{
+    color: purple;
+    background-color: rgb(16, 6, 16);
   }
   
 
