@@ -55,4 +55,8 @@ export class UserServiceService {
     localStorage.removeItem('activeUser');
   }
 
+  public getPastOrders(id: number) {
+    return this.http.get(`${this.baseURL}/api/orders/${id}`);
+  }
+
 }
