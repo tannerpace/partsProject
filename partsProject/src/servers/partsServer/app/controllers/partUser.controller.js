@@ -146,7 +146,7 @@ exports.login = (req, res) => {
 };
 
 
-
+//woring gets past orders by user id
 exports.getPastOrders = (req, res) => {
 
   let userId = req.params.userId;
@@ -156,8 +156,7 @@ exports.getPastOrders = (req, res) => {
   // from orders
   // where userId = ?
 
-  let query = "SELECT * FROM parts.pastOrders \
-  WHERE userId = ?;";
+  let query = "SELECT * FROM parts.pastOrders WHERE userId = ?";
 
   db.query(query, [userId], (err, results) => {
     if (err) {
