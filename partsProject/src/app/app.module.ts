@@ -10,12 +10,12 @@ import { LoginFormComponent } from './components/user/user-login/login-form/logi
 import { PartsMainPageComponent } from './components/parts-main-page/parts-main-page.component';
 import { EditUserFormComponent } from './components/user/edit-user/edit-user-form/edit-user-form.component';
 import { EditUserPageComponent } from './components/user/edit-user/edit-user-page/edit-user-page.component';
-import { CreateUserPageComponent } from './components/user/create-user/create-user-page/create-user-page.component';
 import { CreateUserFormComponent } from './components/user/create-user/create-user-form/create-user-form/create-user-form.component';
 import { MatIconModule } from '@angular/material/icon';
 import { PartsListComponent } from './components/parts-list/parts-list.component';
-import { ItemCartComponent } from './components/item-cart/item-cart.component';
+import { ItemCartComponent } from './components/basket/item-cart.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
+import { PastOrdersComponent } from './components/past-orders/past-orders.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +25,11 @@ import { CartPageComponent } from './components/cart-page/cart-page.component';
     PartsMainPageComponent,
     EditUserFormComponent,
     EditUserPageComponent,
-    CreateUserPageComponent,
     CreateUserFormComponent,
     PartsListComponent,
     ItemCartComponent,
-    CartPageComponent
+    CartPageComponent,
+    PastOrdersComponent
   ],
   imports: [
     FormsModule,

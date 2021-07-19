@@ -55,9 +55,9 @@ VALUES ('Cardinal1','Tom1','123', 'tom1@gmail.com'),('Cardinal2','Tom2','pass123
 
 INSERT INTO parts.catalog (partNumber,PrimaryVendor,color, partName,price)
 VALUES ('M1MN0111309','Baja Designs','silver','Bumper','9.00'),
-('BD1B308','Baja Designs','red','Bumper','19.00'),
+('BD1B308','Baja Designs','red','Flame Hood','19.00'),
 ('BD1B307','Baja Designs','black','Bumper','29.00'),
-('BD1B306','Baja Designs','blue','Bumper','29.00'),
+('BD6','Baja Designs','blue','fuzzyDice','2.00'),
 ('BD1B305','Baja Designs','green','Bumper','39.00'),
 ('BD1B304','Baja Designs','pink','Bumper','29.00'),
 
@@ -69,7 +69,7 @@ VALUES ('M1MN0111309','Baja Designs','silver','Bumper','9.00'),
   ('FlAM105','Auto Meter','red','Flame Hood','29.00'),
   ('FlAM104','Auto Meter','blue','Flame Hood','39.00'),
 
-  ('FlBD108','Baja Designs','red','Flame Hood','19.00'),
+  ('FlBD108','Baja Designs','red','Bumper','19.00'),
   ('FlBD107','Baja Designs','blue','Flame Hood','29.00'),
   ('FlBD106','Baja Designs','pink','Flame Hood','29.00'),
   ('FlBD105','Baja Designs','orange','Flame Hood','29.00'),
