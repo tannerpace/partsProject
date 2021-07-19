@@ -6,5 +6,7 @@ module.exports = app => {
     app.post("/user", serverFunction.createUser);
     app.put("/user/:id", serverFunction.editUserInfo);
     app.delete("/user/:id", serverFunction.deleteUser);
-    app.post("/user/login", serverFunction.login)
+    app.post("/user/login", serverFunction.login);
+
+    app.get("/api/orders/:userId", serverFunction.getPastOrders);
 }
