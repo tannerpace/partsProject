@@ -13,6 +13,7 @@
 
 .title__section {
   font-size: larger;
+  
 }
 .title {
   font-size: small;
@@ -50,7 +51,7 @@ img {
   width: fit-content;
   padding: 0.3em 1em;
   border-radius: 0.5em;
-  text-decoration: none;
+  
 }
 
 .buy:hover {

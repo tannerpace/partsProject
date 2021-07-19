@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CartService } from 'src/app/cart.service';
 import { Product } from 'src/app/models/product.model';
@@ -18,8 +19,8 @@ export class PartsListComponent implements OnInit {
 
 
   constructor(private userService: UserServiceService,
-    private productsService: ProductService
-  ) { }
+    private productsService: ProductService,
+    private router: Router) { }
 
   ngOnInit(): void {
 
@@ -37,8 +38,9 @@ export class PartsListComponent implements OnInit {
   addItem(product: Product) {
     this.productsService.addItem(this.activeUser.id, product.partNumber)
       .subscribe(data => {
-        console.log(data)
-        //then what?
+        //item added successfully
+        //route away to cart
+        this.router.navigate(["cart"])
       }, err => {
         console.error("ERROR:", err)
       });
