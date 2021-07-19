@@ -31,15 +31,11 @@ export class CreateUserFormComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    
-   
-    
     this.userService.createNewUser(this.user)
       .subscribe(
         data => {
           console.log("New User Created Successfully");
           console.log(data)
-          
           this.userService.setActiveUser(data);
         },
         error => {
