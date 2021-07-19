@@ -9,7 +9,7 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 })
 export class PastOrdersComponent implements OnInit {
   activeUser: any;
-  orders: any;
+  orders: any[];
 
   constructor(private userService: UserServiceService) { }
 
@@ -17,7 +17,7 @@ export class PastOrdersComponent implements OnInit {
     this.activeUser = this.userService.getActiveUser();
     this.userService.getPastOrders(this.activeUser.id)
       .subscribe(data => {
-        this.orders = data;
+        this.orders = data as any[];
       }, err => {
         console.error(err)
 
