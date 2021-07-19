@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Product } from '../models/product.model';
 
 @Injectable({
@@ -8,14 +9,14 @@ import { Product } from '../models/product.model';
 export class ProductService {
   private readonly baseURL: string = "http://localhost:8080";
   product: Product
-  
+
   constructor(private http: HttpClient) { }
 
-  getAllParts() {
+  public getAllParts(): Observable<any> {
     return this.http.get(`${this.baseURL}/api/products`);
   }
 
-  public addItem(userId: number, partNumber: string) {
+  public addItem(userId: number, partNumber: string): Observable<any> {
     let body = {
       userId: userId,
       partNumber: partNumber,
@@ -23,9 +24,17 @@ export class ProductService {
     return this.http.put(`${this.baseURL}/api/cartadd`, body)
   }
 
-  public getUserCartItems(userId: number){
-return this.http.get(`${this.baseURL}/api/cart/${userId}`)
+  public getUserCartItems(userId: number): Observable<any> {
+    return this.http.get(`${this.baseURL}/api/cart/${userId}`)
   }
 
+  public changeQuantity(item: number): Observable<any> {
+    return this.http.put(`${this.baseURL}/api/cart/changeQuantity`, item)
+  }
+
+  public deleteItemById(userId: number): Observable<any> {
+
+    return this.http.delete(`${this.baseURL}/api/product/${userId}`)
+  }
 
 }
