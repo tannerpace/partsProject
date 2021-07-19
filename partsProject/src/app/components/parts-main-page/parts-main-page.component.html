@@ -1,7 +1,25 @@
-<p>parts-main-page works!</p>
-<p>welcome {{activeUser.firstName}}</p>
+<div class="root">
 
-<button (click)="logout()">Logout</button>
-<button (click)="toLogin()">ToLoginPage</button>
+    <div class="head">
+        <div class="home">
+            <a routerLink="/">
+                <img src="../../../assets/images/home-icon.png" width="40" height="40">
+            </a>
+        </div>
+        <!-- link the img back to the home page -->
+        
+        <h2 class="firstName">Welcome, {{user.firstName}}</h2>
+        <a class="past-orders" routerLink="/pastOrders"><button>pastOrders()</button></a><br>
+        <button *ngIf="activeUser" (click)="logout()">logout()</button><br>
+    
+        <button *ngIf="!activeUser" (click)="toLogin()">Login</button>
+        <a routerLink="/cart">
+            <button>Cart()</button>
+        </a>
+    </div>
 
-<app-parts-list  [products]="products" ></app-parts-list>
+    <div class="router-parent">
+        <router-outlet></router-outlet>
+    </div>
+
+</div>

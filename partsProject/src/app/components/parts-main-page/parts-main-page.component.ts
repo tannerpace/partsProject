@@ -15,38 +15,31 @@ export class PartsMainPageComponent implements OnInit {
   activeUser: User;
 
   products: Product[] | any = [];
-  
+
 
   constructor(private userService: UserServiceService,
-    private productsService: ProductService,private router: Router) { }
+    private productsService: ProductService, private router: Router) { }
 
   ngOnInit(): void {
     this.activeUser = this.userService.getActiveUser();
     this.user = this.activeUser
-
-    this.productsService.getAllParts()
-      .subscribe(data => {
-        this.products = data;
-      }, err => {
-        console.error(err)
-
-      })
   }
 
-  
-toLogin(){
-  this.router.navigate(['/login']);
-}
 
-goToCreate() {
-  this.router.navigate(['/createUser']);
-}
+  toLogin() {
+    this.router.navigate(['/login']);
+  }
+
+  goToCreate() {
+    this.router.navigate(['/createUser']);
+  }
 
 
-logout() {
+  logout() {
     this.userService.logoutActiveUser();
     this.user = null;
-    return
+    
+    this.toLogin()
   }
 
 
