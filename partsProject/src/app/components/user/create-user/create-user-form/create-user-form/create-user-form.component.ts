@@ -30,20 +30,16 @@ export class CreateUserFormComponent implements OnInit {
     this.user = new User(this.user);
   }
 
-  submit(form: NgForm) {
-    // console.log("submiting" + NgForm)
-
-    // /^[a-zA-Z0-9_.]*$/.test(this.username)
-    // console.log(/^[a-zA-Z0-9_.]*$/.test("!@#%"))
-
-    // if (this.user.password != this.confirmedPassword) {
-    //   console.log("password mismatch")
-    //   return;
-
+  onSubmit(form: NgForm) {
+    
+   
+    
     this.userService.createNewUser(this.user)
       .subscribe(
         data => {
           console.log("New User Created Successfully");
+          console.log(data)
+          
           this.userService.setActiveUser(data);
         },
         error => {
@@ -57,6 +53,9 @@ export class CreateUserFormComponent implements OnInit {
 
 
   goToLogin() {
+    this.router.navigate(["/login"])
+  }
+  toMain() {
     this.router.navigate([""])
   }
 

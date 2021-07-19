@@ -26,8 +26,14 @@ export class UserServiceService {
     return null;
   }
 
-  public createNewUser(newUser: User): Observable<any> {
-    return this.http.post(`${this.baseURL}/user`, newUser);
+  public createNewUser(user: User): Observable<any> {
+    let body = {
+      firstName: user.firstName,
+      lastName: user.lastName,
+      password: user.password,
+      email: user.email
+    }
+    return this.http.post(`${this.baseURL}/user`, body);
   }
 
   public editUserInfo(id: number, updatedUserData: User): Observable<any> {

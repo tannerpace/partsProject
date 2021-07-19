@@ -23,6 +23,8 @@ export class PartsMainPageComponent implements OnInit {
   ngOnInit(): void {
     this.activeUser = this.userService.getActiveUser();
     this.user = this.activeUser
+    this.userService.setActiveUser(this.user
+    )
   }
 
 
@@ -38,7 +40,7 @@ export class PartsMainPageComponent implements OnInit {
   logout() {
     this.userService.logoutActiveUser();
     this.user = null;
-    
+
     this.toLogin()
   }
 
