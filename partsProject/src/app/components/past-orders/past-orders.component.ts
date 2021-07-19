@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { CheckoutService } from 'src/app/services/checkout.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Order } from 'src/app/models/order';
+import { User } from 'src/app/models/user.model';
+
 import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
@@ -8,20 +11,25 @@ import { UserServiceService } from 'src/app/services/user-service.service';
   styleUrls: ['./past-orders.component.css']
 })
 export class PastOrdersComponent implements OnInit {
-  activeUser: any;
-  orders: any[];
+  @Input() activeUser: User;
+  
+orders: Order[];
+  
 
-  constructor(private userService: UserServiceService) { }
+  constructor(private userService: UserServiceService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.activeUser = this.userService.getActiveUser();
     this.userService.getPastOrders(this.activeUser.id)
       .subscribe(data => {
-        this.orders = data as any[];
+        this.orders = data as Order[];
       }, err => {
         console.error(err)
 
       })
   }
+
+  
 
 }

@@ -1,19 +1,20 @@
+<div class="p-orders-head">Past Orders</div>
 <div class="root">
-    <div class="p-orders-head">Past Orders</div>
+<div *ngFor="let order of orders">
+    
+        <table style="width: 100vw;">
+            <tr>
+                <th style="color: rgb(10, 7, 73);">Total Price</th>
+                <th style="color: rgb(10, 7, 73);">Order Date</th>
+                <th style="color: rgb(10, 7, 73);">Order Number</th>
+            </tr>
+            <tr>
+                <td style="padding: 2em;">{{order.totalPrice | currency}}</td>
+                <td style="padding: 2em;">{{order.datePlaced | date:'fullDate'}}</td>
+                <td style="padding: 2em;">{{order.id}}</td>
+            </tr>
 
-    <table>
-        <!--------START TABLE SECTION-->
-        <tr>
-            <th>Total Price</th>
-            <th>Order Date</th>
-            <th>Order Number</th>
-        </tr>
-        <tr>
-            <td>{{1}}</td>
-            <td>{{1}}</td>
-            <td>#{{1}}</td>
-        </tr>
-        <!------------------END TABLE SECTION-->
 
-    </table>
+        </table>
+    </div>
 </div>
