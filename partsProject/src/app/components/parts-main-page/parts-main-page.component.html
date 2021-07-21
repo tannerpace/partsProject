@@ -1,22 +1,26 @@
 <div class="root">
-
-    <div class="head">
+    <button *ngIf="!activeUser" (click)="toLogin()">Please Sign In to Shop</button>
+    <div *ngIf="activeUser">
+        
+    <div class="nav">
+        <h1 class="firstName">Welcome {{activeUser.firstName}}!</h1>
         <div class="home">
             <a routerLink="/">
-                <img src="../../../assets/images/home-icon.png" width="40" height="40">
+                <img tabindex="1" src="../../../assets/images/home-icon.png" width="40" height="40">
             </a>
         </div>
-        <!-- link the img back to the home page -->
+        <a routerLink="search"><img tabindex="2" src="../../../assets/images/searchegg.png" class="search" width="40"
+                height="40"></a>
+
+        <a routerLink="/pastOrders"><img tabindex="3" src="../../../assets/images/historyhead.png" width="40"
+                height="40"></a>
+        <img src="../../../assets/images/logout-2432055-2058929.png" *ngIf="activeUser" (click)="logout()" width="40"
+            height="40"><br>
         
-        <h2 class="firstName">Welcome, {{user.firstName}}</h2>
-        <a class="past-orders" routerLink="/pastOrders"><button>pastOrders()</button></a><br>
-        <button *ngIf="activeUser" (click)="logout()">logout()</button><br>
-    
-        <button *ngIf="!activeUser" (click)="toLogin()">Login</button>
         <a routerLink="/cart">
-            <button>Cart()</button>
+            <img tabindex="4" src="../../../assets/images/cart.png" width="40" height="40">
         </a>
-    </div>
+    </div></div>
 
     <div class="router-parent">
         <router-outlet></router-outlet>

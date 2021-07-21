@@ -13,9 +13,7 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 export class PartsMainPageComponent implements OnInit {
   user: User;
   activeUser: User;
-
   products: Product[] | any = [];
-
 
   constructor(private userService: UserServiceService,
     private productsService: ProductService, private router: Router) { }
@@ -27,7 +25,6 @@ export class PartsMainPageComponent implements OnInit {
     )
   }
 
-
   toLogin() {
     this.router.navigate(['/login']);
   }
@@ -36,14 +33,9 @@ export class PartsMainPageComponent implements OnInit {
     this.router.navigate(['/createUser']);
   }
 
-
   logout() {
     this.userService.logoutActiveUser();
     this.user = null;
-
     this.toLogin()
   }
-
-
-
 };
