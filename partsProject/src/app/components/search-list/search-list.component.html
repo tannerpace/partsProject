@@ -1,0 +1,22 @@
+<div class="root">
+    <div class="list">
+        <div *ngFor="let product of products" class="product-parent">
+            <div class="title__section">
+                <div>{{product.partName}}</div>
+                <div class="title">
+                    <div>{{product.PrimaryVendor}}</div>
+                    <div class="product-colors">
+                        <p>{{product.color}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product_foot">
+                <p class="price">{{product.price}}.00</p>
+
+                <div class="buy" (click)="addItem(product)">Add To Cart</div>
+
+            </div>
+        </div>
+    </div>
+</div>

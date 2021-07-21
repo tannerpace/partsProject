@@ -1,0 +1,8 @@
+
+<div class="wrapper">
+    <input (keyup)="searchProducts($event)" type="text" class="form-control" placeholder="Search" aria-label="Searchbox"
+        aria-describedby="basic-addon1">
+
+     
+</div>
+<app-search-list [products]="results"></app-search-list>

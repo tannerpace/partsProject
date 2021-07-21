@@ -1,0 +1,60 @@
+.root {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .title__section {
+    font-size: larger;
+    
+  }
+  .title {
+    font-size: small;
+  }
+  
+  .product__colors {
+    color: teal;
+  }
+  
+  .product-parent {
+    background-color: rgb(255, 255, 255);
+    width: 200px;
+    text-align: center;
+    margin: 5px;
+    padding: 0.5em;
+    border-radius: 0.5em;
+  }
+  .product-parent:onhover {
+    cursor: pointer;
+  }
+  
+  img {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .buy {
+    
+    background-color: rgb(198, 136, 198);
+    color: rgb(0, 0, 0);
+    
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    padding: 0.3em 1em;
+    border-radius: 0.5em;
+    
+  }
+  
+  .buy:hover {
+    background-color: rgb(213, 213, 213);
+    color: rgb(0, 0, 0);
+  }
