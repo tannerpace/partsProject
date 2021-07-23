@@ -65,4 +65,8 @@ export class UserServiceService {
     return this.http.get(`${this.baseURL}/api/orders/${id}`);
   }
 
+  public details(id: number):Observable<any> {
+    return this.http.get(`${this.baseURL}/api/details/${id}`)
+  }
+
 }
