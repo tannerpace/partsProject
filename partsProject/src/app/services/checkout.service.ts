@@ -24,8 +24,21 @@ export class CheckoutService {
       userId: userId,
       totalPrice: totalPrice
     }
-    return this.http.post(`${this.baseURL}/api/checkout`, body)
+    return this.http.put(`${this.baseURL}/api/checkout`, body)
 
+  }
+
+  public getLast(): Observable<any> {
+    return this.http.get(`${this.baseURL}/api/what/lastinsert`)
+  }
+
+  public updateOrderItems(lastInsert:number,partNumber:string,quantity:number): Observable<any> {
+    let body = {
+      lastInsert: lastInsert,
+      partNumber: partNumber,
+      quantity: quantity
+    }
+    return this.http.put(`${this.baseURL}/api/orderItems`, body)
   }
 
 };

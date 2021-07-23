@@ -39,10 +39,10 @@ CREATE TABLE `parts`.`pastOrders` (
     FOREIGN KEY (userId) REFERENCES users(id)
 );
 CREATE TABLE `parts`.`orderedItems` (
-    id int NOT NULL  ,
-    partNumber varchar(16),
-    quantity int NOT NULL,
-    transactionId int NOT NULL AUTO_INCREMENT ,
+    id int NOT NULL AUTO_INCREMENT,
+    partNumber varchar(16) DEFAULT NULL,
+    quantity int DEFAULT NULL,
+    transactionId int DEFAULT NULL ,
     primary key(id),
     FOREIGN KEY (partNumber) REFERENCES catalog(partNumber),
     FOREIGN KEY (transactionId) REFERENCES pastOrders(id)

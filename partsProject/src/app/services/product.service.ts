@@ -31,10 +31,15 @@ export class ProductService {
   public changeQuantity(item: number): Observable<any> {
     return this.http.put(`${this.baseURL}/api/cart/changeQuantity`, item)
   }
-
+  // deletes all Items in cart By user id, required for checkout service
   public deleteItemById(userId: number): Observable<any> {
-
     return this.http.delete(`${this.baseURL}/api/product/${userId}`)
+  }
+
+  //route is
+  ///api/search
+  public searchProducts(data): Observable<any> {
+    return this.http.get(`${this.baseURL}/api/products/search/${data}`)
   }
 
 }
