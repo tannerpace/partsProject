@@ -1,19 +1,26 @@
 <div class="root">
-    <div class="p-orders-head">Past Orders</div>
 
-    <div *ngFor="let order of orders">
-        <table style="width: 100vw;">
-            <tr>
-                <th>Order Id</th>
-                <th>Total Price</th>
-                <th>Date Placed</th>
-            </tr>
-            <tr>
-                <td>{{order.id}}</td>
-                <td>{{order.totalPrice | currency}}</td>
-                <td>{{order.datePlaced | date:'shortDate'}}</td>
-            </tr>
-        </table>
+    <h2 *ngIf="orders.length == 0">You have no past orders</h2>
+
+    <div class="list">
+        <div class="wrapper">
+            <div *ngFor="let order of orders">
+
+                <br>
+
+                <body class="order">
+                    <details>
+
+                        <summary>Order #{{order.id}}<br>Date {{order.datePlaced | date:'shortDate'}}
+                       
+                            <p>Total Price<br>{{order.totalPrice | currency}}<br>
+                        </summary>
+                       
+<app-order-details [order]="order.id"></app-order-details>
+
+                    </details>
+                </body>
+            </div>
+        </div>
     </div>
-
 </div>

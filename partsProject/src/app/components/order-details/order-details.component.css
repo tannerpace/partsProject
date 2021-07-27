@@ -1,5 +1,14 @@
-.wrapper{
-    margin-top: 10px;
-    font-size: smaller;
-    background-color: rgb(255, 255, 255);
+.wrapper {
+  margin: auto;
+  width: 90%;
+  border-radius: 200px;
+}
+.part {
+  font-family: Courier, monospace;
+  border-radius: 10px;
+}
+#num {
+  text-decoration: none;
+  text-emphasis: "x";
+  -webkit-text-emphasis: "x";
 }
