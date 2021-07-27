@@ -1,0 +1,14 @@
+<div class="wrapper">
+ 
+       <div class="subtotal">
+            <p>Subtotal {{subtotal | currency}}</p>
+       </div>
+      <div>
+            <p class="tax">Tax: {{subtotal * .06 | currency}}</p>
+        </div>
+        <div class="total">
+            <p>Total :
+            {{totalPrice | currency}}</p>
+      
+       </div>
+</div>
