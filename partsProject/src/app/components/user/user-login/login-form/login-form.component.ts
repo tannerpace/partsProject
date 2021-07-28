@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from 'src/app/models/user.model';
 import { UserServiceService } from 'src/app/services/user-service.service';
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent implements OnInit {
 
+
   email: string;
   password: string;
 
@@ -21,21 +22,17 @@ export class LoginFormComponent implements OnInit {
     this.email = '';
     this.password = '';
   }
-  goToCreate() {
-    this.router.navigate(['/createUser']);
-  }
-
+  
   goToMain() {
-    this.router.navigate(['/mainPage']);
+    this.router.navigate(["list"]);
   }
-
   onSubmit(form: NgForm) {
     this.userService.loginUser(this.email, this.password).subscribe(
       (user) => {
         if (!user) {
           console.log('password mismatch');
           //password did not match
-          // do something
+          alert("The password did not match")
           return;
         }
         console.log('login successful');
@@ -49,7 +46,6 @@ export class LoginFormComponent implements OnInit {
       }
     );
   }
-
   showPass() {
     var x = <HTMLInputElement>document.getElementById('login');
     if (x.type == 'password') {
@@ -58,7 +54,7 @@ export class LoginFormComponent implements OnInit {
       x.type = 'password';
     }
   }
-
-
-
+  switch(){
+    
+  }
 }

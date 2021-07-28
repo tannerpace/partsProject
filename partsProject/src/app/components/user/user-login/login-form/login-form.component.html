@@ -2,7 +2,7 @@
 
 
 <form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
-    <h2>Welcome to The Parts Store!</h2>
+    <h2 id="top">Login</h2>
 
     <div class="container">
         <label for="email"><b>Email:</b></label>
@@ -16,12 +16,15 @@
       
         <input type="submit" value="Login" class="subbutton"  [disabled]="!itemForm.valid">
         
-        <hr>
-
-        <button (click)="goToCreate()" class="create">Create
-            Account</button>
         
-
+        <div class="content-footer">
+            By clicking "Login" button, you agree to these
+            <a routerLink="/terms">
+                <strong>TERMS and CONDITIONS.</strong></a>
+            <hr>
+            <p id="sign">No Account? <a routerLink="/sign">
+                    Sign Up</a>
+        </div>
 
     </div>
 

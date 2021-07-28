@@ -5,10 +5,20 @@
   text-align: center;
 }
 form {
-  background: none;
+  
   margin: 20px auto 0;
   padding: 10px;
   width: 280px;
+  border-left: solid gray 1px ;
+  border-right: solid gray 1px ;
+  border-bottom: solid gray 1px ; 
+  border-top: solid gray 1px ;
+  border-radius: 5px;
+  background-color: honeydew;
+}
+#top{
+  width: 25%;
+  margin: auto;
 }
 
 .container {
@@ -91,5 +101,6 @@ input:active {
 }
 
 .content-footer {
-  margin-top: 5px;
+  margin-top: 1em;
+  
 }

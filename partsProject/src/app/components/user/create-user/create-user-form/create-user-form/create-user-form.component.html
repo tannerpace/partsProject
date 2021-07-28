@@ -1,20 +1,32 @@
+<form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
+    <h2 id="top">Sign Up</h2>
+    <div class="container">
 
-    <form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
-        <h3>Create an Account</h3>
         <label for="firstName"><b>First Name:</b></label>
-        <input name="firstName" type="text" id="firstName" required name="firstName" placeholder="First name.." [(ngModel)]="user.firstName" >
+        <input name="firstName" type="text" id="firstName" required name="firstName" placeholder="First name.."
+            [(ngModel)]="user.firstName">
 
         <label for="lastName"><b>Last Name:</b></label>
-        <input name="lastName" type="text" id="lastName" required name="lastName" placeholder="Last name.." [(ngModel)]="user.lastName" >
-
+        <input name="lastName" type="text" id="lastName" required name="lastName" placeholder="Last name.."
+            [(ngModel)]="user.lastName">
 
         <label for="password"><b>Password:</b></label>
-        <input name="password" type="password" required id="password" name="password" placeholder="Password" [(ngModel)]="user.password" >
+        <input name="password" type="password" required id="password" name="password" placeholder="Password"
+            [(ngModel)]="user.password">
 
         <label for="email"><b>Email:</b></label>
-        <input type="email" email="true" id="email" name="email" placeholder="Email.." [(ngModel)]="user.email" >
+        <input type="email" email="true" id="email" name="email" placeholder="Email.." [(ngModel)]="user.email">
+        <hr>
 
         <input class="subbutton" type="submit" value="Create Account" [disabled]="!itemForm.valid">
-        
-        
-    </form>
+        <div class="content-footer">
+            By clicking "Login" button, you agree to
+            <a routerLink="/terms">
+                <strong>TERMS and CONDITIONS.</strong></a>
+            <hr>
+            <p>Have Account? <a routerLink="/login">
+                    LOGIN</a>
+        </div>
+    </div>
+
+</form>
