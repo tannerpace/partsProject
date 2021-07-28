@@ -11,6 +11,7 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 })
 export class CreateUserFormComponent implements OnInit {
   @Output() toggleForms = new EventEmitter<void>();
+  inProgress :Boolean = false
 
   user: User;
   confirmedPassword: string;
@@ -31,22 +32,22 @@ export class CreateUserFormComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    this.inProgress = true;
     this.userService.createNewUser(this.user)
       .subscribe(
         data => {
-          console.log("New User Created Successfully");
-          console.log(data)
-          this.userService.setActiveUser(data);
+          console.log("New User Created Successfully")
+          this.Login(data.email, data.password);
         },
         error => {
           console.error("ERROR creating user: ", error)
         }
-      );
+      )
+
   }
   toggleForm() {
     this.toggleForms.next();
   }
-
 
   goToLogin() {
     this.router.navigate(["/login"])
@@ -54,6 +55,28 @@ export class CreateUserFormComponent implements OnInit {
   toMain() {
     this.router.navigate([""])
   }
+
+  Login(email: string, password: string) {
+    this.userService.loginUser(this.user.email, this.user.password).subscribe(
+      (user) => {
+        if (!user) {
+          //password did not match
+          alert("The password did not match")
+          return;
+        }
+        //user is the user object returned from the DB
+        let activeUser = new User(user);
+        this.userService.setActiveUser(activeUser);
+        
+        setTimeout(() => { this.router.navigate(["/list"]) }, 2000)
+        this.inProgress = false;
+      },
+      (error) => {
+        console.error('ERROR loggin in: ', error);
+      }
+    );
+  }
+
 
 }
 
