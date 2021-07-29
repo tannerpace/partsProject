@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
 import { User } from '../models/user.model';
+import { Observable, Subject, throwError } from 'rxjs';
+
+import { HttpClient,  } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,10 @@ export class UserServiceService {
     }
     return null;
   }
+  public isValid() {
+    return JSON.parse(localStorage.getItem('activeUser')) != null;
+  }
+
 
   public createNewUser(user: User): Observable<any> {
     let body = {
@@ -67,6 +72,23 @@ export class UserServiceService {
 
   public details(id: number):Observable<any> {
     return this.http.get(`${this.baseURL}/api/details/${id}`)
+  }
+  public getUserById(id: number): Observable<any> {
+    return this.http.get(`${this.baseURL}/api/user/id/${id}`);
+  }
+  public getUserByUserEmail(email: string): Observable<any> {
+    return this.http.get(`${this.baseURL}/api/user/${email}`);
+  }
+
+  updateActiveUser() {
+    this.getUserById(this.getActiveUser().id).subscribe(
+      (data) => {
+        localStorage.setItem('activeUser', JSON.stringify(data));
+      },
+      (error) => {
+        console.error('error updating user data in local storage', error);
+      }
+    );
   }
 
 }

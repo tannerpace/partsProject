@@ -42,4 +42,22 @@ export class ProductService {
     return this.http.get(`${this.baseURL}/api/products/search/${data}`)
   }
 
+  public addNewPart(product: Product): Observable<any> {
+    let body = {
+      partNumber: product.partNumber,
+      primaryVendor: product.primaryVendor,
+      color: product.color,
+      partName: product.partName,
+      price: product.price,
+      catagory: product.catagory,
+      img: product.img
+    }
+    return this.http.post(`${this.baseURL}/api/add/product`, body)
+  }
+
+  deletePart(product: Product): Observable<any> {
+    let partNumber = product.partNumber
+    return this.http.delete(`${this.baseURL}/api/part/delete/${partNumber}`)
+  }
+
 }
