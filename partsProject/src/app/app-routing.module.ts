@@ -3,29 +3,42 @@ import { RouterModule, Routes } from '@angular/router';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
 import { PartsListComponent } from './components/parts-list/parts-list.component';
 import { PartsMainPageComponent } from './components/parts-main-page/parts-main-page.component';
-import { EditUserPageComponent } from './components/user/edit-user/edit-user-page/edit-user-page.component';
-import { LoginPageComponent } from './components/user/user-login/login-page/login-page.component';
 import { PastOrdersComponent } from './components/past-orders/past-orders.component';
 import { CreateUserFormComponent } from './components/user/create-user/create-user-form/create-user-form/create-user-form.component';
 import { SearchComponent } from './components/search/search.component';
-import { NotsignedinComponent } from './components/notsignedin/notsignedin.component';
+import { LoginFormComponent } from './components/user/user-login/login-form/login-form.component';
+import { TermsComponent } from './components/terms/terms.component';
+import { OrderConfirmedComponent } from './components/order-confirmed/order-confirmed.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+import { EditUserFormComponent } from './components/user/edit-user/edit-user-form/edit-user-form.component';
+import { ForceLoginGuard } from './guards/force-login.guard';
+import { AuthUserGuard } from './guards/auth-user.guard';
+import { PreloadGuard } from './guards/preload.guard';
+import { AdminPageComponent } from './components/admin-page/admin-page.component';
+
 
 const routes: Routes = [
-  {path:"notsignedin", component:NotsignedinComponent},
-  {path: "login", component: LoginPageComponent},
-  {path: "createUser",component: CreateUserFormComponent},
+  // childern used because it parents the main page to all children
+  { path: "login", component: LoginFormComponent }, { path: "terms", component: TermsComponent }, { path: "sign", component: CreateUserFormComponent },
+  {
+    path: "", component: PartsMainPageComponent
+  },
+  {
+    path: "", component: PartsMainPageComponent, canActivate: [ForceLoginGuard], children: [
 
-  {path: "",component: PartsMainPageComponent, children: [
-    {path: "",component: PartsListComponent},
-    {path: "cart",component: CartPageComponent},
-    {path: "pastOrders", component: PastOrdersComponent},
-    {path: "search", component:SearchComponent}
-    // ** order confirmed **
-  ]},
-  
-  {path: "**", redirectTo: ""}
+      { path: "pastOrders", component: PastOrdersComponent },
+      { path: "confirmed", component: OrderConfirmedComponent },
+      { path: "search", component: SearchComponent },
+      { path: "list", component: PartsListComponent },
+      { path: "cart", component: CartPageComponent },
+      { path: "admin", component: AdminPageComponent },
+
+      { path: "not_found", component: NotfoundComponent }, 
+      { path: ":userName/edit", component: EditUserFormComponent, resolve: { user: PreloadGuard }, canActivate: [AuthUserGuard] },
+    ]
+  },
+  { path: "**", redirectTo: "not_found" }
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

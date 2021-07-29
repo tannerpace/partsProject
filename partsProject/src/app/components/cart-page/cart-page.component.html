@@ -1,34 +1,18 @@
-<p>cart-page works!</p>
 <div class="root">
-    <a routerLink="">
-        <div class="shop">Continue Shopping</div>
-    </a>
-    <div *ngFor="let item of cart">
+    <div class="wrapper">
+        <div *ngFor="let item of cart">
 
-        <p>Item: {{item.partName}}
-            {{item.price | currency}}
-        </p>
-        <input type="number" min="1" class="quantity" [(ngModel)]="item.quantity"
-            (ngModelChange)="changeQuantity(item)" />
-        <button type="button" class="delete" (click)="removeItem(item)">Remove</button>
+            <p>Item: {{item.partName}}
+                {{item.price | currency}}
+            </p>
+            <input type="number" min="1" class="quantity" [(ngModel)]="item.quantity"
+                (ngModelChange)="changeQuantity(item)" />
+            <button type="button" class="delete" (click)="deleteItemById(item)">Remove</button>
 
+        </div>
+        <app-cart-info [totalPrice]="totalPrice" [subtotal]="subtotal"></app-cart-info>
+            <button (click)="goToList()" class="continue"> Continue Shopping </button>
+        <a routerLink="orderyes">
+            <button type="button" class="buy" (click)="buyAll(activeUser.id,totalPrice)">Confirm Purchase</button></a>
     </div>
-
-    <table>
-        <tr>
-            <td>Subtotal </td>
-            <td>{{subtotal | currency}}</td>
-        </tr>
-        <tr>
-            <td class="tax">Tax </td>
-            <td>{{subtotal * .06 | currency}}</td>
-        </tr>
-        <tr>
-            <th>Subtotal </th>
-            <td>{{totalPrice | currency}}</td>
-        </tr>
-    </table>
-    <button >Debug</button>
-
-    <button type="button" (click)="buyAll(activeUser.id,totalPrice)">Confirm Purchase</button>
 </div>

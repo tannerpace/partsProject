@@ -1,0 +1,118 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
+
+.wrapper {
+    margin: auto;
+    width: 50%;
+    border: 1px solid rgba(116, 156, 189, 0.699);
+    padding: 10px;
+  }
+  
+
+table,
+td {font-family: 'Cutive Mono', monospace;
+    border: 1px solid #333;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cancel{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.delete{
+    margin: 5px 5px;
+    background-color: lightcoral;
+    border-radius: 5px;
+}
+
+.quantity{
+    margin: 5px 5px;
+    width: 50px;
+}
+.tax{
+    color: darkorchid;
+}
+.totalPrice{
+  display: grid;
+}
+
+button{
+    width: 100px;
+    background-color: greenyellow;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 30px;
+    
+}
+
+.continue{
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    padding: 0.3em 2em;
+    border-radius: 0.5em;
+    background-color: rgba(198, 136, 198, 0.769);
+    background: linear-gradient(
+      0deg,
+      rgba(149, 90, 244, 0.927) 0%,
+      rgba(141, 67, 205, 0.756) 100%)
+}
+
+
+  .continue:before {
+    height: 0%;
+    width: 2px;
+  }
+  .continue:hover {
+    box-shadow: 1px 1px 1px 0 rgba(255, 255, 255, 0.5),
+      -1px -1px 1px 0 rgba(116, 125, 136, 0.5),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, 0.4);
+  }
+  
+  .continue:active {
+    transform: scale(0.9) translate(-1%, -1%);
+  }
+// buy
+  .buy{
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    padding: 0.3em 2em;
+    border-radius: 0.5em;
+    background-color: rgba(19, 174, 146, 0.769);
+    background: linear-gradient(
+      0deg,
+      rgba(40, 140, 90, 0.829) 0%,
+      rgba(127, 230, 24, 0.83) 100%)
+}
+
+
+  .buy:before {
+    height: 0%;
+    width: 2px;
+  }
+  .buy:hover {
+    box-shadow: 1px 1px 1px 0 rgba(255, 255, 255, 0.5),
+      -1px -1px 1px 0 rgba(116, 125, 136, 0.5),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, 0.4);
+  }
+  
+  .buy:active {
+    transform: scale(0.9) translate(-1%, -1%);
+  }
+  
+  .delete:hover{
+    box-shadow: 1px 1px 1px 0 rgba(121, 80, 80, 0.5),
+    -1px -1px 1px 0 rgba(204, 144, 112, 0.5),
+    inset -2px -2px 2px 0 rgba(255, 255, 255, 0.2),
+    inset 2px 2px 2px 0 rgba(0, 0, 0, 0.4);
+  }

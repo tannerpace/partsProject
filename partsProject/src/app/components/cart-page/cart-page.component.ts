@@ -1,7 +1,9 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Product } from 'src/app/models/product.model';
+import { Component, Input,  OnInit, Output } from '@angular/core';
+import {  Router  } from '@angular/router';
+
+
+import { CartService } from 'src/app/cart.service';
+
 import { User } from 'src/app/models/user.model';
 import { CheckoutService } from 'src/app/services/checkout.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -10,50 +12,35 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 @Component({
   selector: 'app-cart-page',
   templateUrl: './cart-page.component.html',
-  styleUrls: ['./cart-page.component.css']
+  styleUrls: ['./cart-page.component.scss']
 })
 export class CartPageComponent implements OnInit {
   @Input() activeUser: User;
+  @Output() public subtotal: any = 0;
+  @Output() public totalPrice: number;
+
   cart: any[];
-  howmany: number
-
-
-  public subtotal: number = 0;
-  public totalPrice: number;
-
-
 
   constructor(private checkOutService: CheckoutService,
     private userService: UserServiceService,
     private productService: ProductService,
-    private route: ActivatedRoute) { }
-
+    private router: Router,
+    public cartService: CartService) { }
 
   ngOnInit(): void {
     this.activeUser = this.userService.getActiveUser();
     this.checkOutService.getCartByUserId(this.activeUser.id)
       .subscribe(data => {
         this.cart = data;
-        //then calc the total price
         this.subtotal = 0;
-        for (let i = 0; i < this.cart.length; i++) {
-        }
-        //loop cart array price times quantity
-        this.cart.forEach(i => { this.subtotal += i.price * i.quantity })
-
-        // for (let item of this.cart) {
-        //   this.subtotal += item.price * item.quantity;
-        //   this.total
-        // }
+        //calc the total price
+        this.cart.forEach(element => { this.subtotal += element.price * element.quantity })
         this.totalPrice = this.subtotal * 1.06;
+        console.log(this.totalPrice)
       }, err => {
         console.error(err)
-
       })
-
   }
-
-
 
   changeQuantity(item: any) {
     // look at item id, get quantity (already updated)
@@ -71,36 +58,30 @@ export class CartPageComponent implements OnInit {
         // error updating quantity
         console.error("ERROR updating quantity of item", err, item);
       });
+    this.ngOnInit()
   }
 
   buyAll(userId: number, totalPrice: number,) {
-    console.log("BUY!ALL")
-    console.log(userId, totalPrice)
-
-    // do something here
-    // POST a new 'past order'
     this.checkOutService.buyAll(userId, totalPrice)
       .subscribe(data => {
-        this.productService.deleteItemById(userId).subscribe()
-        //nav away
+        
       }, err => {
         console.error(err)
       })
-
-    // DELETE items from cart (WHERE userID = ?)
-    // remove all items from cart
-    // go to "purchase confirmed page" - or the 'past orders' page
-
+      setTimeout(()=>{
+        this.router.navigate(["/confirmed"])
+      },2000)
   }
 
-
-  removeItem(item: any) {
-    console.log(item)
-    this.productService.deleteItemById(item.id)
+  deleteItemById(item: any) {
+    let id = item.id
+    console.log("cart page ts deletinG!", id)
+    this.cartService.deleteItemById(id).subscribe()
+    this.ngOnInit()
   }
 
-  goToOrderedPage() {
-    // this.route.navigate
+  goToList(){
+    this.router.navigate(["list"])
   }
 
 };
