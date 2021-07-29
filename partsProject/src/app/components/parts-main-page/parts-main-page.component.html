@@ -3,7 +3,7 @@
     <div class="dropdown">
         <div class="right">
             <img  style="height: 50px;
-        width: 50px;background-color: #0f79e3b8; margin: 7px;border-radius: 5px;"
+        width: 50px;background-color: #590198a4; margin: 7px;border-radius: 5px;"
         src="../../../assets/images/logout-2432055-2058929.png" *ngIf="activeUser" (click)="logout()"
             >
         </div>
@@ -32,7 +32,7 @@
     </div>
 
     <div class="nav">
-        <div>Welcome {{activeUser.firstName}}!
+        <div>Welcome <span class="firstName">{{activeUser.firstName}}!</span>
 
 
 
