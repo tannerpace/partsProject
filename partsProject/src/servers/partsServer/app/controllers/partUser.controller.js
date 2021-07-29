@@ -174,3 +174,76 @@ exports.getPastOrders = (req, res) => {
     }
   });
 };
+
+exports.getOrderInfo = (req, res) => {
+
+  let transactionId = req.params.id;
+
+  // select user by userName
+  // select order date, order total, order id
+  // from orders
+  // where userId = ?
+
+  let query = "SELECT * FROM parts.orderedItems WHERE transactionId = ?";
+
+  db.query(query, [transactionId], (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+      return;
+    } else {
+      if (results.length == 0) {
+        //no user found
+        res.status(404).send({ message: "No orders found with that transaction Id" });
+        return;
+      }
+      //got past orders successfully
+      res.send(results);
+    }
+  });
+};
+
+exports.getUserById = (req, res) => {
+  let id = req.params.id;
+
+  // select user by id
+  let query = "SELECT * FROM parts.users where id = ?;";
+
+  db.query(query, [id], (err, results) => {
+    console.log(results);
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+      return;
+    } else {
+      if (results.length == 0) {
+        //no user found
+        res.status(404).send({ message: "user id not found" });
+        return;
+      }
+      res.send(results[0]);
+    }
+  });
+};
+
+exports.getUser = (req, res) => {
+  let email = req.params.email;
+
+  // select user by userName
+  let query = "SELECT * FROM parts.users where email = ?;";
+
+  db.query(query, [email], (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+      return;
+    } else {
+      if (results.length == 0) {
+        //no user found
+        res.status(404).send({ message: "user not found" });
+        return;
+      }
+      res.send(results[0]);
+    }
+  });
+};

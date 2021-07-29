@@ -90,7 +90,6 @@ exports.getCartItemQuantityById = (req, res) => {
 // addfirst//
 exports.addItem = (req, res) => {
 
-
   let userId = req.body.userId;
   let partNumber = req.body.partNumber;
 
@@ -102,14 +101,13 @@ exports.addItem = (req, res) => {
   db.query(idquery, [userId, partNumber], (err, results) => {
     if (err) {
       console.error(err);
-
       res.status(500).send(err)
       return;
     } else if (results.length == 0) {
       //nopart in database with this userId and partNum
       //add a new part
       addFirst(userId, partNumber);
-      res.send({message: "item added to cart"})
+      res.send({ message: "item added to cart" })
     } else {
       let theId = results[0].id;
       //increase quantity by cart id.
@@ -119,8 +117,6 @@ exports.addItem = (req, res) => {
   });
   console.log("waiting to send response")
 };
-
-
 
 //function to add item make quantity 1
 function addFirst(userId, partNumber) {
@@ -133,7 +129,6 @@ function addFirst(userId, partNumber) {
   db.query(query, [userId, partNumber], (err, results) => {
     if (err) {
       console.error(err);
-
       return results;
     } else {
       console.log(results);
@@ -143,11 +138,6 @@ function addFirst(userId, partNumber) {
   }
   );
 };
-
-
-
-
-
 
 //returns 0 if row doesn't exist, or the id of item
 function getCartId(userId, partNumber) {
@@ -276,7 +266,6 @@ function amount(userId, partNumber) {
 
 };
 
-
 //decreases quantity of cart items by id
 exports.changeQuantity = (req, res) => {
 
@@ -284,17 +273,34 @@ exports.changeQuantity = (req, res) => {
   let quantity = req.body.quantity;
 
   let query = "UPDATE parts.cartItems SET quantity = ? WHERE id = ?;";
-  
+
   db.query(query, [quantity, id], (err, results) => {
-      if (err) {
-          console.error(err);
-          res.status(500).send();
-          return
-      } else {
-          console.log(results)
-      }
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+      return
+    } else {
+      console.log(results)
+    }
 
   });
+}
+
+exports.deleteItem = (req, res) => {
+  console.log("cart control DELETE!")
+  let id = req.params.id;
+  let query = "DELETE FROM parts.cartItems WHERE id = ?;";
+
+  db.query(query, [id], (err, results) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send();
+      return
+    } else {
+      res.send(results)
+
+    }
+  })
 }
 
 
