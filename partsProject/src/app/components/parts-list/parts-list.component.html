@@ -1,22 +1,28 @@
 <div class="root">
-    <div class="list">
 
-        <div *ngFor="let product of products" class="product-parent">
-            <div class="title__section">
-                <div>{{product.partName}}</div>
-                <div class="title">
-                    <div>{{product.PrimaryVendor}}</div>
-                    <div class="product-colors">
-                        <p>{{product.color}}</p>
-                    </div>
-                </div>
+    <div class="list" >
+
+        <div *ngFor="let product of products" [ngStyle]="{'background-color':getColor(product)} "  class="product-parent" >
+            <div class="title">
+                <div >{{product.PrimaryVendor}}</div>
+                <div *ngIf="activeUser.admin" class="delete"><button (click)="deletePart(product)" style="width: 60px; color: darkblue;background-color: crimson;">DELETE PART</button></div> 
+                
+               
+            </div>
+               <div>{{product.partName}}</div> 
+            <div class="title__section" style="background-image:url({{product.img}}); height: 180px; width: 200px;">
+             
+              
             </div>
 
             <div class="product_foot">
+                
+              <br>
+
+                <div class="buy" (click)="addItem(product)">Add To Cart</div>
+          
                 <p class="price">{{product.price}}.00</p>
-                
-                    <div class="buy" (click)="addItem(product)">Add To Cart</div>
-                
+             
             </div>
         </div>
     </div>

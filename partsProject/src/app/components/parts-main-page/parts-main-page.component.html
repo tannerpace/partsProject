@@ -1,29 +1,49 @@
-<div class="root">
-    <button *ngIf="!activeUser" (click)="toLogin()">Please Sign In to Shop</button>
-    <div *ngIf="activeUser">
-        
-    <div class="nav">
-        <h1 class="firstName">Welcome {{activeUser.firstName}}!</h1>
-        <div class="home">
-            <a routerLink="/">
-                <img tabindex="1" src="../../../assets/images/home-icon.png" width="40" height="40">
+<a routerLink="login"><div class="root" *ngIf="!activeUser" >PLEASE LOGIN</div></a>
+<div class="root" *ngIf="activeUser">
+    <div class="dropdown">
+        <div class="right">
+            <img  style="height: 50px;
+        width: 50px;background-color: #0f79e3b8; margin: 7px;border-radius: 5px;"
+        src="../../../assets/images/logout-2432055-2058929.png" *ngIf="activeUser" (click)="logout()"
+            >
+        </div>
+
+        <button class="dropbtn firstName">Low Country Parts Store<img src="../../../assets/images/colormoped.png"
+                width="50px" height="40px"></button>
+        <div class="dropdown-content">
+            <a class="item" routerLink="search"><img src="../../../assets/images/searchegg.png" width="40" height="40">
+                Search
+            </a>
+            <a class="item" routerLink="/pastOrders"><img src="../../../assets/images/pastOrders.png" width="40"
+                    height="40"> History
+            </a>
+            <a class="item" routerLink="list"><img src="../../../assets/images/home-icon.png" width="40" height="40">
+                <span> Home </span>
+            </a>
+            <a class="item" routerLink="terms"><img src="../../../assets/images/terms.png" width="40" height="40">
+                <span> Terms</span>
+            </a>
+            <a class="item" routerLink="/cart">
+                <img tabindex="4" src="../../../assets/images/522-5225638_treasure-chest-clip-art.png" width="40"
+                    height="40"> Cart
             </a>
         </div>
-        <a routerLink="search"><img tabindex="2" src="../../../assets/images/searchegg.png" class="search" width="40"
-                height="40"></a>
 
-        <a routerLink="/pastOrders"><img tabindex="3" src="../../../assets/images/historyhead.png" width="40"
-                height="40"></a>
-        <img src="../../../assets/images/logout-2432055-2058929.png" *ngIf="activeUser" (click)="logout()" width="40"
-            height="40"><br>
-        
-        <a routerLink="/cart">
-            <img tabindex="4" src="../../../assets/images/cart.png" width="40" height="40">
-        </a>
-    </div></div>
+    </div>
 
+    <div class="nav">
+        <div>Welcome {{activeUser.firstName}}!
+
+
+
+
+
+
+
+
+        </div>
+    </div>
     <div class="router-parent">
         <router-outlet></router-outlet>
     </div>
-
 </div>

@@ -8,7 +8,7 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 @Component({
   selector: 'app-parts-main-page',
   templateUrl: './parts-main-page.component.html',
-  styleUrls: ['./parts-main-page.component.css']
+  styleUrls: ['./parts-main-page.component.scss']
 })
 export class PartsMainPageComponent implements OnInit {
   user: User;
