@@ -1,5 +1,11 @@
-<div class="root">  <div class="nada" *ngIf="!cart">You have no Items in your cart <a routerLink="/list">Countinue Shopping</a></div>
-    <div class="wrapper" *ngIf="cart">
+<div class="root">
+    <div class="nada" *ngIf="!cart">What the heck? You need to go shopping<br><a routerLink="/list">Countinue
+            Shopping</a>
+    </div>
+    <div class="nada" *ngIf="cart.length<1">What the heck? You need to go shopping<br><a routerLink="/list">Countinue
+            Shopping</a>
+    </div>
+    <div class="wrapper" *ngIf="cart.length>=1">
         <div *ngFor="let item of cart">
 
             <p>Item: {{item.partName}}
@@ -11,8 +17,10 @@
 
         </div>
         <app-cart-info [totalPrice]="totalPrice" [subtotal]="subtotal"></app-cart-info>
-            <button (click)="goToList()" class="continue"> Continue Shopping </button>
+        <button (click)="goToList()" class="continue"> Continue Shopping </button>
         <a routerLink="orderyes">
             <button type="button" class="buy" (click)="buyAll(activeUser.id,totalPrice)">Confirm Purchase</button></a>
     </div>
+
+
 </div>

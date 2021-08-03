@@ -1,0 +1,6 @@
+.firstName:first-of-type {
+  text-transform: capitalize;
+}
+.wrapper {
+  height: 50vh;
+}

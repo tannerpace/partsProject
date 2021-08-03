@@ -1,8 +1,12 @@
-
 <div class="wrapper">
-    <input (keyup)="searchProducts($event)" type="text" class="form-control" placeholder="Search" aria-label="Searchbox"
-        aria-describedby="basic-addon1">
-
-     
+    <div class="center">
+        <input (keyup)="searchProducts($event)" type="text" class="form-control" placeholder="Search"
+            aria-label="Searchbox" aria-describedby="basic-addon1">
+    </div>
 </div>
-<app-search-list [products]="results"></app-search-list>
+
+<div class="root">
+    <div class="list">
+        <app-search-list class="s-list" [products]="results">list heres</app-search-list>
+    </div>
+</div>

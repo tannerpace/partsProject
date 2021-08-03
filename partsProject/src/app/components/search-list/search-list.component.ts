@@ -15,8 +15,8 @@ export class SearchListComponent implements OnInit {
   @Input() products: Product[];
   public activeUser: User;
   constructor(private userService: UserServiceService,
-     private productsService: ProductService,
-     private router: Router) { }
+    private productsService: ProductService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.activeUser = this.userService.getActiveUser();
@@ -31,6 +31,25 @@ export class SearchListComponent implements OnInit {
         console.error("ERROR:", err)
       });
   }
+  getColor(product) {
+    switch (product.color) {
+      case 'red':
+        return 'indianred';
+      case 'green':
+        return "lightgreen";
+      case 'blue':
+        return 'lightblue';
+      case 'silver':
+        return 'silver';
+      case 'orange':
+        return 'lightyellow';
+      case 'pink':
+        return 'hotpink';
+      case 'black':
+        return 'grey';
+    }
+  }
+
 
 }
 

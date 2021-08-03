@@ -1,0 +1,111 @@
+<div class="wrapper style=">
+
+  <body>
+
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <!-- LOGO -->
+      <tr>
+        <td bgcolor=" #f4f4f4" align="center">
+          <table cellpadding="0" cellspacing="0" width="80%" style="max-width: 600px;">
+            <tr>
+              <td valign="top" style="padding: 40px 10px 40px 10px;"> </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+            <tr>
+              <td bgcolor="#666666" align="center" valign="top"
+                style="padding: 10px 20px 10px 20px; border-radius: 4px 4px 0px 0px; color: #ffffff; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
+                <h2 style="font-family: 'Raleway'; letter-spacing: 0.5px; font-size: 40px; font-weight: bold;">Low
+                  Country Moped Parts Store</h2>
+                <img src="../../../assets/images/check.png" width="100" height="100"
+                  style="display: block; padding: 0px; border: 0;">
+                <h2 style="font-family: 'Raleway'; font-size: 30px; font-weight: 900; letter-spacing: 0.8px;">Your order
+                  is placed successfully! <br>Your order Id is : {{order.id}}</h2>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px; ">
+          <table border="0" cellpadding="0" cellspacing="0" width="90%" style="max-width: 600px;">
+            <tr>
+              <td bgcolor="#ffffff" align="left"
+                style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                <table bgcolor="#efefef" cellpadding="0" cellspacing="0" width="100%"
+                  style="padding: 50px; border-radius: 5px; border: 2px solid #e7e7e7;">
+                  <tr style="font-size: 18px; font-weight: 400; padding: 20px;">
+                    <th style="padding: 10px 0 10px 20px; text-align: left; border-right: 2px solid #e7e7e7;">SUMMARY:
+                    </th>
+                    <th style="padding: 10px 0 10px 20px; text-align: left;">Ship To:</th>
+                  </tr>
+                  <tr style="font-size: 16px; font-weight: 400; padding: 20px;">
+                    <td style="padding-bottom: 10px; border-right: 2px solid #e7e7e7;">
+                      <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr style="padding: 20px;">
+                          <th style="padding: 5px 0 5px 20px; text-align: left;">Order Date:</th>
+                          <td style="text-align: right; padding: 5px 20px 5px 0">{{order.datePlaced | date}}</td>
+                        </tr>
+                      </table>
+                    </td>
+
+                    <td style="padding-bottom: 10px;">
+                      <table width="100%">
+                        <tr style="padding: 10px;">
+                          <td class="firstName" style="padding: 5px 0 5px 20px; text-align: left;">
+                            {{activeUser.firstName}}
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td bgcolor="#ffffff" align="left"
+                style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="padding: 50px;">
+                  <tr bgcolor="#efefef" style="border-radius: 5px; border-bottom: 2px solid #e7e7e7;">
+                    <th style="padding: 10px 0 10px 20px; text-align: left;">Total:{{order.totalPrice | currency}}</th>
+                    <th style="padding: 10px 0 10px 20px; text-align: left;">{{order.total}}</th>
+
+                  </tr>
+
+                </table>
+              </td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+              <td bgcolor="#ffffff" align="left"
+                style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                <p style="margin: 0;">Thanks,<br>Low Country Parts Team <a routerLink="/pastOrders">View Orders</a></p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td bgcolor="#f4f4f4" align="center" style="padding: 30px 10px 0px 10px;">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+          </table>
+        </td>
+      </tr>
+    </table>
+
+  </body>
+</div>

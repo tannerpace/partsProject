@@ -68,6 +68,7 @@ exports.buyAll = (req, res) => {
                 //save the transaction id for later
                 tranArr.push(transactionId)
 
+
             }); if (err) {
                 console.error(err)
             } else {
@@ -90,8 +91,7 @@ exports.buyAll = (req, res) => {
                                     res.status(500).send();
                                     return;
                                 }
-                                console.log("doing something foreach")
-
+                                console.log("update orderItems foreach")
                             });
                         });
                     }
@@ -104,23 +104,45 @@ exports.buyAll = (req, res) => {
                         return
                     }
                 })
+                db.query(getlastQuery, [], (err, results) => {
+                    if (err) {
+                        console.error(err);
+                        res.status(500).send();
+                        return;
+                    }
+                    const last = results[results.length - 1];
+                    let transactionId = last["LAST_INSERT_ID(id)"]
+                    let idArr = [];
+                    idArr.push(transactionId)
+
+                    //save the transaction id for later
+                    console.log("sending lastidArr", idArr)
+                    res.send(idArr)
+
+
+                });
+
             }
         }
-        res.send(results)
+
 
     });
-
-
-
-
-
 
 }
 
 
+
+
+
+
+
+
+
+
+
+
 //gets last insert id from parts.pastOrders.
 exports.lastInsert = (req, res) => {
-
     const getlastQuery = "SELECT LAST_INSERT_ID(id) FROM parts.pastOrders;";
     db.query(getlastQuery, [], (err, results) => {
         if (err) {
@@ -129,11 +151,10 @@ exports.lastInsert = (req, res) => {
             return;
         }
         let endix = results.length - 1;
-        console.log(endix);
+
         const last = results[endix];
         let lastinsert = last["LAST_INSERT_ID(id)"]
 
-        console.log(lastinsert);
         res.send(last);
     });
 };

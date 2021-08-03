@@ -23,6 +23,13 @@ export class SearchComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.productService.getAllParts()
+      .subscribe(data => {
+        this.results = data as Product[];
+      }, err => {
+        console.error(err)
+      })
+
   }
   searchProducts(event) {
     this.search = event.target.value

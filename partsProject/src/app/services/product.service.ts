@@ -45,11 +45,11 @@ export class ProductService {
   public addNewPart(product: Product): Observable<any> {
     let body = {
       partNumber: product.partNumber,
-      primaryVendor: product.primaryVendor,
+      primaryVendor: product.PrimaryVendor,
       color: product.color,
       partName: product.partName,
       price: product.price,
-      catagory: product.catagory,
+      category: product.Category,
       img: product.img
     }
     return this.http.post(`${this.baseURL}/api/add/product`, body)

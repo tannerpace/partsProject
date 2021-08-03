@@ -1,0 +1,24 @@
+<div class="page__root">
+    <div class="drop__wrapper">
+        <!-- <label for="colors">Filter by Color :</label><br>
+        <select class="dropdown" name="colors" [(ngModel)]="selectedColor" (change)="colorSelected()"
+            placeholder="Color" style="font-size: xx-large;" [selectedIndex]=0>
+            <option name="colors" *ngFor="let color of color">{{ color }}</option>
+        </select><br> -->
+        <label for="Categorys">Filter by Category :<select class="drop" name="Categorys" [(ngModel)]="selectedCategory"
+                (change)="categorySelected()" placeholder="Category" style="font-size: xx-large;" [selectedIndex]=0>
+                <option id="Categorys" *ngFor="let category of category">{{ category }}</option>
+            </select></label>
+        <div class="search">
+            <input (keyup)="searchProducts($event)" type="text" class="form-control" placeholder="Search"
+                aria-label="Searchbox" aria-describedby="basic-addon1">
+        </div>
+        <!-- <div class="reset" (click)="resetProduct()">Reset Filter</div> -->
+    </div>
+    <div class="list">
+        <div *ngFor="let product of products" class="product-parent">
+            <app-small-list [product]="product"></app-small-list>
+        </div>
+    </div>
+
+</div>

@@ -247,3 +247,29 @@ exports.getUser = (req, res) => {
     }
   });
 };
+
+
+exports.getOrderConfirm = (req, res) => {
+
+  let Id = req.params.id;
+
+
+
+  let query = "SELECT * FROM parts.pastOrders WHERE Id = ?";
+
+  db.query(query, [transactionId], (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+      return;
+    } else {
+      if (results.length == 0) {
+        //no user found
+        res.status(404).send({ message: "No orders found with that transaction Id" });
+        return;
+      }
+      //got past orders successfully
+      res.send(results);
+    }
+  });
+};

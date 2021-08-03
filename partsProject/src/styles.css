@@ -1,4 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
+
 :root{
 
 --rich-black: hsla(197, 100%, 5%, 1);
@@ -11,5 +13,15 @@
 --mahogany: hsla(19, 97%, 37%, 1);
 --rufous: hsla(5, 81%, 38%, 1);
 --red: hsla(358, 64%, 37%, 1);
+--font: 'Cutive Mono', monospace;
 
 };
+.firstName:first-of-type {
+    text-transform: capitalize;
+  }
+
+  .top {
+    background-image: url("../../../../../assets/images/charlestonEdit.jpeg");
+    background-position: center;
+    height: 100vh;
+  }

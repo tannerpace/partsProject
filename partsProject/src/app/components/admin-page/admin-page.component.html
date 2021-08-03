@@ -1,47 +1,28 @@
 <div class="root" *ngIf="activeUser.admin">
-
-
-
-
-
-
-
-
     <div class="wrapper">
-
-
         <form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
             <h1>Hello {{activeUser.firstName}}</h1><br>
             <p>List a new Part</p>
-
-
             <label for="partNumber" class="partNumber">Part Number</label><br>
-            <input placeholder="Part Number" type="text" id="partNumber" class="form-control partNumber" name="partNumber" [(ngModel)]="product.partNumber"
-                hint="Update Part Number" required><br>
-
+            <input placeholder="Part Number" type="text" id="partNumber" class="form-control partNumber"
+                name="partNumber" [(ngModel)]="product.partNumber" hint="Update Part Number" required><br>
             <label for="PrimaryVendor">PrimaryVendor</label><br>
-            <input type="text"  name="PrimaryVendor" required placeholder="Primary Vendor" [(ngModel)]="product.primaryVendor"><br>
+            <input type="text" name="PrimaryVendor" required placeholder="Primary Vendor"
+                [(ngModel)]="product.primaryVendor"><br>
             <label for="color">Color</label><br>
-            <input type="text"  id="color" name="color" required placeholder="color" [(ngModel)]="product.color"><br>
-
-
+            <input type="text" id="color" name="color" required placeholder="color" [(ngModel)]="product.color"><br>
             <label for="partName">partName</label><br>
-            <input type="text"  name="partName" required placeholder="Part Name" name="partName" [(ngModel)]="product.partName"><br>
-
-
+            <input type="text" name="partName" required placeholder="Part Name" name="partName"
+                [(ngModel)]="product.partName"><br>
             <label for="Price">Price</label><br>
-            <input type="number"  name="Price" required placeholder="Price" name="price" [(ngModel)]="product.price"><br>
-
-
+            <input type="number" name="Price" required placeholder="Price" name="price" [(ngModel)]="product.price"><br>
             <label for="PrimaryVendor">Category</label><br>
-            <input type="text"  name="Category" required placeholder="Category" name="Category" [(ngModel)]="product.Category"><br>
-
-
+            <input type="text" name="Category" required placeholder="Category" name="Category"
+                [(ngModel)]="product.Category"><br>
             <label for="Img">Img</label><br>
-            <input type="text"  name="Img" required placeholder="copy paste image adress" name="img" [(ngModel)]="product.img"><br>
+            <input type="text" name="Img" required placeholder="copy paste image adress" name="img"
+                [(ngModel)]="product.img"><br>
             <input class="subbutton" type="submit" value="Add Part" [disabled]="!itemForm.valid">
-
-
         </form>
-
     </div>
+</div>

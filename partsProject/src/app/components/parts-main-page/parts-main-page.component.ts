@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DropdownService } from 'src/app/dropdown.service';
 import { Product } from 'src/app/models/product.model';
 import { User } from 'src/app/models/user.model';
 import { ProductService } from 'src/app/services/product.service';
@@ -16,7 +17,8 @@ export class PartsMainPageComponent implements OnInit {
   products: Product[] | any = [];
 
   constructor(private userService: UserServiceService,
-    private productsService: ProductService, private router: Router) { }
+    private router: Router,
+    public dropdownService: DropdownService) { }
 
   ngOnInit(): void {
     this.activeUser = this.userService.getActiveUser();
@@ -25,9 +27,7 @@ export class PartsMainPageComponent implements OnInit {
     )
   }
 
-  toLogin() {
-    this.router.navigate(['/login']);
-  }
+
 
   goToCreate() {
     this.router.navigate(['/createUser']);
@@ -37,5 +37,9 @@ export class PartsMainPageComponent implements OnInit {
     this.userService.logoutActiveUser();
     this.user = null;
     this.toLogin()
+  }
+
+  toLogin() {
+    this.router.navigate(['login']);
   }
 };

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
 import { Observable, Subject, throwError } from 'rxjs';
 
-import { HttpClient,  } from '@angular/common/http';
+import { HttpClient, } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -70,7 +70,7 @@ export class UserServiceService {
     return this.http.get(`${this.baseURL}/api/orders/${id}`);
   }
 
-  public details(id: number):Observable<any> {
+  public details(id: number): Observable<any> {
     return this.http.get(`${this.baseURL}/api/details/${id}`)
   }
   public getUserById(id: number): Observable<any> {
@@ -89,6 +89,10 @@ export class UserServiceService {
         console.error('error updating user data in local storage', error);
       }
     );
+  }
+
+  public getOrderConfirm(id: number): Observable<any> {
+    return this.http.get(`${this.baseURL}/api/user/Confirmed/${id}`)
   }
 
 }

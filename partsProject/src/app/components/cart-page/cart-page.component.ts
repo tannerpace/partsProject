@@ -1,5 +1,5 @@
-import { Component, Input,  OnInit, Output } from '@angular/core';
-import {  Router  } from '@angular/router';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 import { CartService } from 'src/app/cart.service';
@@ -25,6 +25,7 @@ export class CartPageComponent implements OnInit {
     private userService: UserServiceService,
     private productService: ProductService,
     private router: Router,
+    public activatedRoute: ActivatedRoute,
     public cartService: CartService) { }
 
   ngOnInit(): void {
@@ -58,30 +59,52 @@ export class CartPageComponent implements OnInit {
         // error updating quantity
         console.error("ERROR updating quantity of item", err, item);
       });
-    this.ngOnInit()
+
+    setTimeout(() => {
+      this.calculateTotal(this.activeUser)
+    }, 500)
   }
 
   buyAll(userId: number, totalPrice: number,) {
     this.checkOutService.buyAll(userId, totalPrice)
       .subscribe(data => {
-        
+        console.log("data we got", data)
+        let tranId = data[0]
+        console.log("we got tranId", tranId)
+
+        this.router.navigate([`/confirmed`])
+
       }, err => {
         console.error(err)
       })
-      setTimeout(()=>{
-        this.router.navigate(["/confirmed"])
-      },2000)
+
   }
 
   deleteItemById(item: any) {
     let id = item.id
+    this.cart = this.cart.filter(i => i !== item);
     console.log("cart page ts deletinG!", id)
     this.cartService.deleteItemById(id).subscribe()
-    this.ngOnInit()
+    alert(`${item.name}, was removed`)
+    this.calculateTotal(this.activeUser)
   }
 
-  goToList(){
+  goToList() {
     this.router.navigate(["list"])
   }
+  calculateTotal(activeUser) {
+    this.activeUser = this.userService.getActiveUser();
+    this.checkOutService.getCartByUserId(this.activeUser.id)
+      .subscribe(data => {
+        this.cart = data;
+        this.subtotal = 0;
+        //calc the total price
+        this.cart.forEach(element => { this.subtotal += element.price * element.quantity })
+        this.totalPrice = this.subtotal * 1.06;
 
+      }, err => {
+        console.error(err)
+      })
+  }
 };
+

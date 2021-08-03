@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class DropdownService {
 
   constructor() { }
-  color =['blue','red','black','silver'];
-  category=['wheel','engine','suspension','seat','body','cloths','electrical']
+  reset = []
+  color = ['blue', 'red', 'black', 'silver', 'orange', 'limegreen', 'green', 'pink'];
+  category = ['Exterior', 'Engine', 'Suspension', 'Wheel', 'Clothes', 'Light']
 }

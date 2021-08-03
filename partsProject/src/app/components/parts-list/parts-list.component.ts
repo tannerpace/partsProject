@@ -1,8 +1,7 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-
+import { DropdownService } from 'src/app/dropdown.service';
 import { Product } from 'src/app/models/product.model';
 import { User } from 'src/app/models/user.model';
 import { ProductService } from 'src/app/services/product.service';
@@ -14,12 +13,16 @@ import { UserServiceService } from 'src/app/services/user-service.service';
   styleUrls: ['./parts-list.component.css']
 })
 export class PartsListComponent implements OnInit {
+  // @Input() product: Product;
 
-  products: Product[];
+  catagory = {};
+  product: Product;
   activeUser: User;
+  products: Product[];
 
   constructor(private userService: UserServiceService,
     private productsService: ProductService,
+    private dropdownService: DropdownService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -30,6 +33,7 @@ export class PartsListComponent implements OnInit {
       }, err => {
         console.error(err)
       })
+
   }
 
   addItem(product: Product) {
@@ -42,33 +46,33 @@ export class PartsListComponent implements OnInit {
         console.error("ERROR:", err)
       });
   }
-getColor(product){
-  switch(product.color){
-    case 'red':
-      return 'indianred';
-      case'green':
-      return "lightgreen";
+  getColor(product) {
+    switch (product.color) {
+      case 'red':
+        return 'indianred';
+      case 'green':
+        return "lightgreen";
       case 'blue':
-      return 'lightblue';
+        return 'lightblue';
       case 'silver':
         return 'silver';
-        case 'orange':
-          return 'lightyellow';
-          case 'pink':
-            return 'hotpink';
-            case 'black':
-              return 'grey';
+      case 'orange':
+        return 'lightyellow';
+      case 'pink':
+        return 'hotpink';
+      case 'black':
+        return 'grey';
+    }
   }
-}
 
 
-deletePart(product){
-  return this.productsService.deletePart(product).subscribe(data => {
-    //do nothing with data
-    console.log(data)
-  })
+  deletePart(product) {
+    return this.productsService.deletePart(product).subscribe(data => {
+      //do nothing with data
+      console.log(data)
+    })
 
-}
-  
+  }
+
 
 }

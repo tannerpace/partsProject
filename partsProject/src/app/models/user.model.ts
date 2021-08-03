@@ -6,6 +6,7 @@ export class User {
 
     public password?: string;
     public email?: string;
+    public admin?: Boolean;
 
     constructor(obj: any) {
         Object.assign(this, obj);

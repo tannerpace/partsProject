@@ -4,24 +4,23 @@
   /* background: rgb(214,242,236); */
   /* background: radial-gradient(circle, rgba(214,242,236,0) 0%, rgba(214,242,236,0.2007177871148459) 0%); */
   /* background: rgb(214, 242, 236); */
-  background-image: radial-gradient(
+  background-image: linear-gradient(
     rgba(131, 196, 203, 0.407) 10%,
     rgba(95, 187, 167, 0.318) 20%,
     rgba(138, 160, 155, 0.489) 40%,
     rgba(96, 142, 132, 0.393) 50%,
-    rgba(142, 196, 184, 0.5) 60%,
-    rgba(110, 155, 145, 0.4) 70%,
-    rgba(95, 164, 149, 0.3) 80%,
+    rgba(142, 196, 184, 0.2) 60%,
+    rgba(142, 196, 184, 0.2) 70%,
+    rgba(142, 196, 184, 0.2) 80%,
     rgba(214, 242, 236, 0.2) 90%,
     rgba(214, 242, 236, 0.1) 94%
   );
 
   font-family: "Montserrat", sans-serif;
-  font-size: larger;
-  height: 100vh;
+  font-size: x-large;
   display: flexbox;
-  align-items: center;
-  justify-content: space-evenly;
+  align-items: flex-end;
+  justify-content: flex-end;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -30,74 +29,44 @@
 .firstName:first-of-type {
   text-transform: capitalize;
 }
-.nav {
-  height: 2.5em;
-  background-color: rgba(94, 6, 216, 0.809);
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  border-top: inset rgba(4, 1, 23, 0.811) 2px;
-  color: rgb(255, 255, 255);
-}
 
 /* router parent is 11 because 2 + 9 = 11 */
 .router-parent {
-  margin: 1em 0;
+  // margin: 2em 0;
   overflow: auto;
   height: calc(100% - 9em);
 }
 
 /* nav bar styles */
 
-
-.item {
+.drop__item {
   display: inline-block;
-  margin: auto;
-  
-  color: black;
-  padding-bottom: 15px;
-  border-radius: 20px;
-  height: 35px;
-  width: 180px;
+  font-family: fantasy;
+  background-color: rgb(255, 255, 255);
+  padding: 15px 15px 20px 15px;
+  border-radius: 5px;
+  height: 30px;
+  width: 300px;
   margin: 5px 3px 10px 30px;
   font-size: x-large;
   text-decoration: none;
-  padding-right: 20px;
-  background-image: radial-gradient(
-    rgba(254, 254, 254, 0.634) 10%,
-    rgba(214, 200, 220, 0.542) 20%,
-    rgba(211, 226, 223, 0.489) 40%,
-    rgba(96, 142, 132, 0.393) 50%,
-    rgba(152, 128, 223, 0.556) 60%,
-    rgba(116, 97, 174, 0.83) 70%,
-    rgba(63, 19, 194, 0.494) 80%,
-    rgba(24, 2, 65, 0.296) 90%,
-    rgba(167, 8, 161, 0.097) 94%
-  );
-}
-
-.right {
- float: right;
- 
- 
-  
-}
-.right:hover{
-  cursor: pointer;
+  color: rgb(0, 52, 98);
+  border: solid black 1px;
 }
 
 .dropbtn {
-background-image:url(../../../assets/images/charlestonEdit.jpeg);
-background-size: 445px;
-background-repeat: no-repeat;
-  color: rgba(75, 0, 160, 0.816);
+  background-repeat: no-repeat;
+  color: rgb(187, 255, 0);
   padding: 20px;
-  font-size: xx-large;
-  border: none;
   cursor: pointer;
   border-radius: 0px 0px 10px 0px;
-  font-family: fantasy;
-  border: inset blueviolet 3px;
+  background-image: url("../../../assets/images/charleston.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: x-large;
+  width: 400px;
+  font: bolder;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
 }
 
 .dropdown {
@@ -108,20 +77,63 @@ background-repeat: no-repeat;
 .dropdown-content {
   display: none;
   position: absolute;
-  
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  // background-color: aliceblue;
   z-index: 1;
 }
 
 .dropdown-content a:hover {
   background-color: #53e8ead8;
- 
   box-shadow: 0 5px #666;
   transform: translateY(4px);
-  transform: rotate(0.012turn);
+  transform: rotate(0.02sturn);
+  &:active {
+    box-shadow: 3px 3px 2px #00cfeb;
+    transform: translateY(4px);
+    transform: rotate(0.01turn);
+  }
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.nav {
+  width: 40%;
+  width: 400px;
+  position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+  .nav {
+    width: 100px;
+    font-size: 1px;
+  }
+  .dropdown-content {
+    width: 100px;
+    font-size: 1px;
+    color: aliceblue;
+    background-color: white;
+  }
+
+  .dropbtn {
+    width: 100px;
+    font-size: 1px;
+    color: aliceblue;
+  }
+
+  .root {
+    display: flex;
+    align-items: center;
+  }
+
+  .drop__item {
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    width: 100px;
+    font-size: 1px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    border: solid black 1px;
+  }
 }

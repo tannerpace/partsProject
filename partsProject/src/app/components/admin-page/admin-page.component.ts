@@ -27,11 +27,11 @@ export class AdminPageComponent implements OnInit {
     this.activeUser = this.userService.getActiveUser();
     this.product = {
       partNumber: '',
-      primaryVendor: '',
+      PrimaryVendor: '',
       color: '',
       partName: '',
       price: '',
-      catagory: '',
+      Category: '',
       img: ''
     }
     this.product = new Product(this.product);

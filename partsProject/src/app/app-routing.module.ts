@@ -15,6 +15,8 @@ import { ForceLoginGuard } from './guards/force-login.guard';
 import { AuthUserGuard } from './guards/auth-user.guard';
 import { PreloadGuard } from './guards/preload.guard';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
+import { ProductpageComponent } from './productpage/productpage.component';
+
 
 
 const routes: Routes = [
@@ -29,11 +31,13 @@ const routes: Routes = [
       { path: "pastOrders", component: PastOrdersComponent },
       { path: "confirmed", component: OrderConfirmedComponent },
       { path: "search", component: SearchComponent },
-      { path: "list", component: PartsListComponent },
-      { path: "cart", component: CartPageComponent },
-      { path: "admin", component: AdminPageComponent },
 
-      { path: "not_found", component: NotfoundComponent }, 
+      { path: "cart", component: CartPageComponent },
+      { path: "list", component: ProductpageComponent },
+      { path: "admin", component: AdminPageComponent },
+      { path: "terms", component: TermsComponent },
+
+      { path: "not_found", component: NotfoundComponent },
       { path: ":userName/edit", component: EditUserFormComponent, resolve: { user: PreloadGuard }, canActivate: [AuthUserGuard] },
     ]
   },

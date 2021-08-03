@@ -34,7 +34,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list'
+import { MatListModule } from '@angular/material/list';
+
+import { ProductpageComponent } from './productpage/productpage.component';
+import { SmallListComponent } from './small-list/small-list.component'
 
 @NgModule({
   declarations: [
@@ -60,7 +63,10 @@ import { MatListModule } from '@angular/material/list'
     TermsComponent,
     OrderConfirmedComponent,
     NotfoundComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    
+    ProductpageComponent,
+         SmallListComponent
   ],
   imports: [
     FormsModule,
