@@ -36,7 +36,7 @@ export class PartsMainPageComponent implements OnInit {
   logout() {
     this.userService.logoutActiveUser();
     this.user = null;
-    this.toLogin()
+    this.router.navigate(['login']);
   }
 
   toLogin() {

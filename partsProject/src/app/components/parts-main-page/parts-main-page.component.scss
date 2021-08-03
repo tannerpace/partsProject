@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap");
-
+* {
+  font-family: "Pacifico", cursive;
+  font-family: "Playfair Display SC", serif;
+}
 .root {
   /* background: rgb(214,242,236); */
   /* background: radial-gradient(circle, rgba(214,242,236,0) 0%, rgba(214,242,236,0.2007177871148459) 0%); */
@@ -16,7 +19,6 @@
     rgba(214, 242, 236, 0.1) 94%
   );
 
-  font-family: "Montserrat", sans-serif;
   font-size: x-large;
   display: flexbox;
   align-items: flex-end;
@@ -24,6 +26,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  height: 4.5em;
 }
 
 .firstName:first-of-type {

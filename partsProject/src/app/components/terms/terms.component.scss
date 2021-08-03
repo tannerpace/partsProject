@@ -3,9 +3,11 @@
   justify-content: space-around;
   align-items: center;
   box-sizing: border-box;
-  height: 70vh;
+  padding-top: 100px;
+
   padding: 2rem;
-  background-color: #eee;
+  background-color: rgb(112, 160, 167);
+  width: calc(100% -400px);
 }
 
 .container {
@@ -14,13 +16,13 @@
   box-sizing: border-box;
   padding: 1rem;
   background-color: #fff;
-  width: 768px;
+  width: calc(100% -400px);
   height: 100%;
   border-radius: 0.25rem;
   box-shadow: 0rem 1rem 2rem -0.25rem rgba(0, 0, 0, 0.25);
 
   &__heading {
-    padding: 1rem 0;
+    padding: 1em 0;
     border-bottom: 1px solid rgb(255, 238, 238);
     text-align: center;
 
@@ -72,10 +74,3 @@
 .big {
   width: 200px;
 }
-
-// .big:active {
-//   transform: scale3d(1, 1, 1);
-// }
-// .big:hover {
-//   transform: scale3d(1, 1, 1);
-// }

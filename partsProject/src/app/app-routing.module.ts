@@ -21,9 +21,10 @@ import { ProductpageComponent } from './productpage/productpage.component';
 
 const routes: Routes = [
   // childern used because it parents the main page to all children
-  { path: "login", component: LoginFormComponent }, { path: "terms", component: TermsComponent }, { path: "sign", component: CreateUserFormComponent },
+  { path: "login", component: LoginFormComponent }, { path: "sign", component: CreateUserFormComponent },
   {
     path: "", component: PartsMainPageComponent
+    , children: [{ path: "terms", component: TermsComponent },]
   },
   {
     path: "", component: PartsMainPageComponent, canActivate: [ForceLoginGuard], children: [
@@ -35,7 +36,7 @@ const routes: Routes = [
       { path: "cart", component: CartPageComponent },
       { path: "list", component: ProductpageComponent },
       { path: "admin", component: AdminPageComponent },
-      { path: "terms", component: TermsComponent },
+
 
       { path: "not_found", component: NotfoundComponent },
       { path: ":userName/edit", component: EditUserFormComponent, resolve: { user: PreloadGuard }, canActivate: [AuthUserGuard] },
