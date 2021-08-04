@@ -31,3 +31,12 @@ button {
 .delete:active {
   inset: 23px;
 }
+
+@media (max-width: 600px) {
+  .info__root {
+    width: 100%;
+
+    margin: auto;
+    box-sizing: content-box;
+  }
+}

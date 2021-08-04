@@ -5,8 +5,8 @@
 
 .wrapper {
   margin: auto;
-  width: 70%;
-  border: 1px solid rgba(116, 156, 189, 0.699);
+  width: calc(100% - 400px);
+
   padding: 10px;
   background-color: rgb(255, 255, 255);
   font-family: "press start 2p";
@@ -32,7 +32,7 @@
 }
 
 .quantity {
-  margin: 5px 1px 1px 1px;
+  margin: 5px 5px 1px 1px;
   width: 75px;
   font-size: x-large;
 }
@@ -151,5 +151,26 @@ button {
     bottom: -100px;
     content: "Nothing In your CART!";
     font-size: xx-large;
+  }
+}
+
+@media (max-width: 600px) {
+  .nada {
+    width: 100%;
+    margin-right: auto;
+    margin-left: 10px;
+  }
+  .root {
+    width: 100%;
+    margin-right: auto;
+    margin-left: 10px;
+  }
+  .wrapper {
+    width: 300px;
+  }
+  .cart__info {
+    width: 100%;
+    margin-left: 10px;
+    margin-right: auto;
   }
 }
