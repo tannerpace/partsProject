@@ -1,33 +1,33 @@
 <a routerLink="login">
-    <div class="root" *ngIf="!activeUser">PLEASE LOGIN</div>
+    <div class="root link" *ngIf="!activeUser">PLEASE LOGIN</div>
 </a>
 <div class="root" *ngIf="activeUser">
     <main class="nav">
         <div class="dropdown">
-            <button class="dropbtn firstName">Welcome to Low Country Moped Parts<div class="firstName">
+            <button class="dropbtn firstName white">Explore Low Country Moped Parts<div class="firstName">
                     {{activeUser.firstName}}!
                 </div><img src="../../../assets/images/colormoped.png" width="50px" height="40px"></button>
             <div class="dropdown-content">
-                <a class="drop__item" routerLink="/cart">
+                <a class="drop__item link" routerLink="/cart">
                     <img tabindex="4" src="../../../assets/images/522-5225638_treasure-chest-clip-art.png" width="40"
                         height="40"> Cart
                 </a>
-                <a class="drop__item" routerLink="/pastOrders"><img src="../../../assets/images/pastOrders.png"
+                <a class="drop__item link" routerLink="/pastOrders"><img src="../../../assets/images/pastOrders.png"
                         width="40" height="40"> History
                 </a>
-                <a class="drop__item" routerLink="terms"><img src="../../../assets/images/terms.png" width="40"
+                <a class="drop__item link" routerLink="terms"><img src="../../../assets/images/terms.png" width="40"
                         height="40">
                     <span> Terms</span>
                 </a>
-                <a class="drop__item" routerLink="list"><img src="../../../assets/images/home-icon.png" width="40"
+                <a class="drop__item link" routerLink="list"><img src="../../../assets/images/home-icon.png" width="40"
                         height="40">
-                    <span> Filter </span>
+                    <span> Shop </span>
                 </a>
                 <!-- <a class="drop__item" routerLink="search"><img src="../../../assets/images/searchegg.png" width="40"
                         height="40">
                     Search
                 </a> -->
-                <a class="drop__item" (click)="logout()">
+                <a class="drop__item link" (click)="logout()">
                     <img src="../../../assets/images/logout-2432055-2058929.png" width="40" height="40"> Logout
                 </a>
 

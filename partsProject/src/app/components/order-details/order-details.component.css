@@ -1,14 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Pacifico&family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
 .wrapper {
   margin: auto;
   width: 90%;
   border-radius: 200px;
+  font-family: "Noto Sans JP", sans-serif;
+  padding: 10px;
 }
 .part {
-  font-family: Courier, monospace;
   border-radius: 10px;
 }
 #num {
   text-decoration: none;
-  text-emphasis: "x";
-  -webkit-text-emphasis: "x";
 }

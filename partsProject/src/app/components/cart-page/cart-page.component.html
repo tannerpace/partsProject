@@ -1,8 +1,8 @@
 <div class="root">
-    <div class="nada" *ngIf="!cart">What the heck? You need to go shopping<br><a routerLink="/list">Countinue
+    <div class="nada" *ngIf="!cart">What the heck?<br><a routerLink="/list">Countinue
             Shopping</a>
     </div>
-    <div class="nada" *ngIf="cart.length<1">What the heck? You need to go shopping<br><a routerLink="/list">Countinue
+    <div class="nada" *ngIf="cart.length<1">What the heck? <br><a routerLink="/list">Countinue
             Shopping</a>
     </div>
     <div class="wrapper" *ngIf="cart.length>=1">
@@ -14,6 +14,7 @@
             <input type="number" min="1" class="quantity" [(ngModel)]="item.quantity"
                 (ngModelChange)="changeQuantity(item)" />
             <button type="button" class="delete" (click)="deleteItemById(item)">Remove</button>
+            <hr>
 
         </div>
         <app-cart-info [totalPrice]="totalPrice" [subtotal]="subtotal"></app-cart-info>

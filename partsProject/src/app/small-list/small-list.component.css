@@ -1,13 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Pacifico&family=Press+Start+2P&display=swap");
+
 .product-parent {
   background-color: rgb(255, 255, 255);
   text-align: center;
   margin: 9px;
-  padding: 0.5em;
+  padding: 2.9em;
   border-radius: 0.5em;
   font-size: smaller;
   border-radius: 5px;
   box-shadow: 5px 5px 5px 1px rgba(0, 0, 255, 0.1);
   opacity: 0.97;
+  font-family: "Press Start 2P";
 }
 
 .product-parent:hover {

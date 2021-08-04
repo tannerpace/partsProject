@@ -1,4 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Pacifico&family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 
 .wrapper {
   margin: auto;
@@ -6,6 +9,7 @@
   border: 1px solid rgba(116, 156, 189, 0.699);
   padding: 10px;
   background-color: rgb(255, 255, 255);
+  font-family: "press start 2p";
 }
 
 .cancel {
@@ -15,8 +19,9 @@
 
 .delete {
   background-color: lightcoral;
-  font-size: x-large;
+  font-size: large;
   box-shadow: 1px 1px 2px #bbbbbb;
+  padding: 5px;
   &:active {
     box-shadow: 5px 5px 2px #bbbbbb;
     background-color: palevioletred;
@@ -44,6 +49,7 @@ button {
   margin-left: 2px;
   margin-right: 2px;
   border-radius: 30px;
+  font-family: "Quicksand", sans-serif;
 }
 
 .continue {

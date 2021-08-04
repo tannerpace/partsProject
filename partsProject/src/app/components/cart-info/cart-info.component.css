@@ -1,36 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Pacifico&family=Press+Start+2P&display=swap");
 
-
-@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
-
-
-
-
-
-
-.delete{
-    margin: 5px 5px;
-    background-color: lightcoral;
-    border-radius: 5px;
+.delete {
+  margin: 5px 5px;
+  background-color: lightcoral;
+  border-radius: 5px;
 }
 
-.quantity{
-    margin: 5px 5px;
-    width: 50px;
+.quantity {
+  margin: 5px 5px;
+  width: 50px;
 }
-.tax{
-    color: rgb(90, 92, 149);
-    text-decoration: slategrey underline;
-  
+.subtotal {
+  text-decoration: slategrey underline;
 }
 
-
-button{
-    width: 100px;
-    background-color: greenyellow;
-   
-    
+.tax {
+  color: rgb(90, 92, 149);
+  text-decoration: slategrey underline;
 }
-.delete:active{
+
+.total {
+  text-decoration: slategrey underline;
+}
+
+button {
+  width: 100px;
+  background-color: greenyellow;
+}
+.delete:active {
   inset: 23px;
 }
-
