@@ -11,7 +11,7 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 })
 export class CreateUserFormComponent implements OnInit {
   @Output() toggleForms = new EventEmitter<void>();
-  inProgress :Boolean = false
+  inProgress: Boolean = false
 
   user: User;
   confirmedPassword: string;
@@ -67,14 +67,23 @@ export class CreateUserFormComponent implements OnInit {
         //user is the user object returned from the DB
         let activeUser = new User(user);
         this.userService.setActiveUser(activeUser);
-        
-        setTimeout(() => { this.router.navigate(["/list"]) }, 2000)
+
+        setTimeout(() => { this.router.navigate(["/list"]) }, 1000)
         this.inProgress = false;
       },
       (error) => {
         console.error('ERROR loggin in: ', error);
       }
     );
+  }
+
+  showPass() {
+    var x = <HTMLInputElement>document.getElementById('password');
+    if (x.type == 'password') {
+      x.type = 'text';
+    } else {
+      x.type = 'password';
+    }
   }
 
 

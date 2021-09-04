@@ -1,4 +1,4 @@
-<!-- <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 
 <form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
@@ -9,14 +9,11 @@
         <input type="email" placeholder="Enter Email" name="email" required [(ngModel)]="email"><br>
 
         <label for="password"><b>Password:</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required [(ngModel)]="password" id="login">
-        <mat-icon aria-hidden="false" aria-label="eye icon" (click)="showPass()">preview</mat-icon>
 
+        <input type="password" placeholder="password" [(ngModel)]="password" name="password" id="login" required>
+        <i class="fa fa-eye" aria-hidden="true" (click)="showPass()"></i>
+        <input type="submit" value="Login" class="subbutton" [disabled]="!itemForm.valid">
 
-      
-        <input type="submit" value="Login" class="subbutton"  [disabled]="!itemForm.valid">
-        
-        
         <div class="content-footer">
             By clicking "Login" button, you agree to these
             <a routerLink="/terms">

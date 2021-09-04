@@ -5,15 +5,14 @@
   text-align: center;
 }
 form {
-  
   margin: 20px auto 0;
   padding: 10px;
   width: 280px;
- border:solid grey 1px;
+  border: solid grey 1px;
   border-radius: 5px;
-  background-color: honeydew;
+  background-color: rgb(255, 255, 255);
 }
-#top{
+#top {
   width: 25%;
   margin: auto;
 }
@@ -37,8 +36,8 @@ input {
 }
 
 input[type="text"],
-input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -99,5 +98,12 @@ input:active {
 
 .content-footer {
   margin-top: 1em;
-  
+}
+
+.fa {
+  position: relative;
+  color: rgba(0, 0, 0, 0.542);
+  font-size: 20px;
+  margin-left: 220px;
+  top: -38px;
 }

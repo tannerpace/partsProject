@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
 <form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
     <h2 id="top">Sign Up</h2>
     <div class="container">
@@ -9,14 +11,13 @@
         <label for="lastName"><b>Last Name:</b></label>
         <input name="lastName" type="text" id="lastName" required name="lastName" placeholder="Last name.."
             [(ngModel)]="user.lastName">
+        <label id="email-label" for="email"><b>Email:</b></label>
+        <input type="email" email="true" id="email" name="email" placeholder="Email.." [(ngModel)]="user.email">
 
         <label for="password"><b>Password:</b></label>
         <input name="password" type="password" required id="password" name="password" placeholder="Password"
             [(ngModel)]="user.password">
-
-        <label for="email"><b>Email:</b></label>
-        <input type="email" email="true" id="email" name="email" placeholder="Email.." [(ngModel)]="user.email">
-        <hr>
+        <i class="fa fa-eye" aria-hidden="true" (click)="showPass()"></i>
 
         <input class="subbutton" type="submit" value="Create Account" [disabled]="!itemForm.valid">
         <div class="content-footer">

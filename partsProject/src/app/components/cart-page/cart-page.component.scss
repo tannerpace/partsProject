@@ -174,3 +174,15 @@ button {
     margin-right: auto;
   }
 }
+
+@media (max-width: 400px) {
+  .nada {
+    display: none;
+    &::before {
+      font-size: small;
+      position: relative;
+      left: 100px;
+      display: none;
+    }
+  }
+}
