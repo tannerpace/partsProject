@@ -85,7 +85,7 @@ export class CartPageComponent implements OnInit {
     this.cart = this.cart.filter(i => i !== item);
     console.log("cart page ts deletinG!", id)
     this.cartService.deleteItemById(id).subscribe()
-    alert(`${item.name}, was removed`)
+    alert(`${item.partName}, was removed from ${this.activeUser.firstName}'s cart`)
     this.calculateTotal(this.activeUser)
   }
 
