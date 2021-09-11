@@ -128,7 +128,7 @@ exports.login = (req, res) => {
 
   db.query(query, [email], async (err, data) => {
     if (err) {
-      res.status(500).send({ message: "error orrcured" });
+      res.status(500).send({ message: "error occured" });
     } else if (data && data.length == 0) {
       //empty request
       res.status(400).send({ message: "Email not found" });
@@ -139,7 +139,7 @@ exports.login = (req, res) => {
         console.log("password successs");
         res.send(data[0]);
       } else {
-        res.status(204).send({ message: "password doesnt match" });
+        res.status(204).send({ message: "Password does not match" });
       }
     }
   });

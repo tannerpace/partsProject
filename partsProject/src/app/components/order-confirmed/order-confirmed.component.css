@@ -2,5 +2,5 @@
   text-transform: capitalize;
 }
 .wrapper {
-  height: 50vh;
+  max-height: 100%;
 }
