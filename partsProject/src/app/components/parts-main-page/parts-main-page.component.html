@@ -8,18 +8,20 @@
                     {{activeUser.firstName}}!
                 </div><img src="../../../assets/images/colormoped.png" width="50px" height="40px"></button>
             <div class="dropdown-content">
-                <a class="drop__item link" routerLink="/cart">
+                <a class="drop__item link" routerLinkActive="activebutton" routerLink="/cart">
                     <img tabindex="4" src="../../../assets/images/522-5225638_treasure-chest-clip-art.png" width="40"
                         height="40"> Cart
                 </a>
-                <a class="drop__item link" routerLink="/pastOrders"><img src="../../../assets/images/pastOrders.png"
+                <!-- <div *ngIf="RouterState !=== "> -->
+                <a class="drop__item link" routerLinkActive="activebutton" routerLink="/pastOrders"><img src="../../../assets/images/pastOrders.png"
                         width="40" height="40"> History
                 </a>
-                <a class="drop__item link" routerLink="terms"><img src="../../../assets/images/terms.png" width="40"
+                <!-- </div> -->
+                <a class="drop__item link"  routerLinkActive="activebutton" routerLink="terms"><img src="../../../assets/images/terms.png" width="40"
                         height="40">
                     <span> Terms</span>
                 </a>
-                <a class="drop__item link" routerLink="list"><img src="../../../assets/images/home-icon.png" width="40"
+                <a class="drop__item link"  routerLinkActive="activebutton" routerLink="list"><img src="../../../assets/images/home-icon.png" width="40"
                         height="40">
                     <span> Shop </span>
                 </a>
