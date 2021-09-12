@@ -1,2 +1,1 @@
-# partsProject
-personal project
+personal project a mean stack app
