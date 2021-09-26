@@ -1,3 +1,5 @@
+This was my final project that I created using the skills learned while attending JRS coding school.
+
 To setup this project to run on your own computer, follow 
 these instructions: 
 
